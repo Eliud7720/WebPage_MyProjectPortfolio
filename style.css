@@ -69,6 +69,11 @@ main {
     padding-top: 130px;
 }
 
+main section {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
 /* --------------- navbar styling ---------------*/
 header {
     position: fixed;
@@ -246,7 +251,113 @@ header .navbar {
     color: var(--secondary-color);
 }
 
+/* Skills styling*/
 
+.my-skills{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 5%;
+    background-color: var(--secondary-color);
+}
+
+.my-skills .title {
+    color: var(--medium-beige-color);
+    font-size: var(--font-size-m);
+    text-align: center;
+}
+
+.my-skills .title {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+.my-skills .title.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.my-skills .title hr {
+    border: none; 
+    border-top: 4px solid var(--dark-green-color);
+    border-radius: var(--border-radius-m);
+    width: 50px;
+    margin: 0 auto;
+}
+
+.my-skills .photos {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-skills .photos .photo {
+    transition: transform 0.25s ease-in-out;
+}
+
+.my-skills .photos .photo:hover {
+    transform: translateY(-8px);
+}
+
+.my-skills .bars{
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.my-skills .bar_1,
+.my-skills .bar_2,
+.my-skills .bar_3 {
+    height: 30px;
+    flex: 1;
+}
+
+.my-skills .bar_1{
+    background-color: var(--dark-green-color);
+}
+
+.my-skills .bar_2{
+    background-color: var(--medium-green-color);
+}
+
+.my-skills .bar_3{
+    background-color: var(--light-green-color);
+}
+
+.my-skills .text {
+    display: flex;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.my-skills .text_1,
+.my-skills .text_2,
+.my-skills .text_3 {
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.my-skills .text_1{
+    color: var(--dark-green-color);
+}
+
+.my-skills .text_2{
+    color: var(--medium-green-color);
+}
+
+.my-skills .text_3{
+    color: var(--light-green-color);
+}
 
 
 
