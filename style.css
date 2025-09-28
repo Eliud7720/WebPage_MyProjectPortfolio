@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pompiere&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pompiere&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
     margin: 0;
@@ -55,6 +55,7 @@ ul {
 a {
     text-decoration: none;
 }
+
 button {
     cursor: pointer;
     border: none;
@@ -193,7 +194,7 @@ header .navbar {
 }
 
 .description-title {
-  line-height: 1;        /* fuerza línea compacta */
+  line-height: 1; 
 }
 
 .description-content {
@@ -202,8 +203,8 @@ header .navbar {
 
 .description-content .description-hr {
     border: none;
-    height: 1px;               /* grosor de la línea */
-    background-color: var(--primary-color);     /* color de la línea */
+    height: 1px; 
+    background-color: var(--primary-color);
 
 }
 
@@ -359,7 +360,275 @@ header .navbar {
     color: var(--light-green-color);
 }
 
+/* Project section*/
 
+.projects-section .section-title {
+    color: var(--primary-color);
+    font-size: var(--font-size-m);
+    text-align: center;
+}
+
+.projects-section .section-title {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+.projects-section .section-title.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.projects-section hr {
+    border: none; 
+    border-top: 4px solid var(--primary-color);
+    border-radius: var(--border-radius-m);
+    width: 50px;
+    margin: 0 auto 25px auto;
+}
+
+
+.project {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 0.5px solid gray;
+  border-top-right-radius: 21px;
+  border-top-left-radius: 21px;
+}
+
+.project .project-image {
+  transition: transform 0.2s ease, filter 0.2s ease;
+  border-top-right-radius: 21px;
+  border-top-left-radius: 21px;
+}
+
+.project .project-image:hover {
+  filter: brightness(1.2);
+}
+
+.project .project-name {
+    text-align: center;
+    font-family: "Pompiere", sans-serif;
+    margin-bottom: 5px;
+    color: black;
+    opacity: 0.8;
+}
+
+.project .project-hr {
+    width: 95%;
+    border-top: 1px solid black;
+}
+
+.project .project-description {
+    color: black;
+    font-style: normal;
+    text-align: justify;
+    padding: 0 2%;
+}
+
+.project .project-tags {
+    display: flex;
+    gap: 10px;
+    padding: 0 2%;
+}
+
+/* tags colors */
+.tag-python {
+    color:  rgba(0, 0, 255, 0.5);
+    background-color: rgba(0, 0, 255, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-numpy {
+    color:  rgba(10, 58, 7, 0.5);
+    background-color: rgba(10, 58, 7, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-pandas {
+    color:  rgba(255, 0, 212, 0.5);
+    background-color: rgba(255, 0, 212, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+
+/* My projects wrapper settings */
+.slider-wrapper {
+    overflow: hidden;
+    margin: 0 60px 50px;
+}
+
+.swiper-slide-button {
+    color: var(--primary-color) !important;
+    opacity: 0.8;
+    transition: 0.3s ease;
+}
+
+.swiper-slide-button:hover {
+    color: var(--primary-color) !important;
+    opacity: 1;
+}
+
+.projects-section .swiper-pagination-bullet {
+  background: var(--primary-color) !important;
+  opacity: 0.6 !important;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+}
+
+.projects-section .swiper-pagination-bullet-active {
+  background: var(--primary-color) !important;
+  opacity: 1 !important;
+}
+
+
+/* My resume section title settings */
+.resume-section {
+    background-color: var(--secondary-color);
+    padding: 40px 0;
+}
+
+.resume-section .section-title {
+    color: var(--medium-beige-color);
+    font-size: var(--font-size-m);
+    text-align: center;
+}
+
+.resume-section .section-title {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 0.8s ease-out;
+}
+
+.resume-section .section-title.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.resume-section hr {
+    border: none; 
+    border-top: 4px solid var(--dark-green-color);
+    border-radius: var(--border-radius-m);
+    width: 50px;
+    margin: 0 auto 25px auto;
+}
+
+/* Resume wrapper settings */
+.slider-container-resume {
+  position: relative;
+  width: 100%;
+  padding: 0 5% !important;
+}
+
+.slider-wrapper-resume {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto 60px auto;
+}
+
+.slider-container-resume .swiper-pagination {
+  position: relative;
+  margin-top: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.swiper-slide-button-resume {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* centra verticalmente */
+  z-index: 10;
+  font-size: 35px;
+  color: var(--dark-green-color) !important;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.resume-section .swiper-pagination-bullet {
+  background: var(--dark-green-color) !important;
+  opacity: 0.6 !important;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+.resume-section .swiper-pagination-bullet-active {
+  background: var(--dark-green-color) !important;
+  opacity: 1 !important;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  transition: opacity 0.3s;
+}
+
+/* Resume content */
+.resume {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.resume .title-name {
+    text-align: left !important;      /* Alinea texto a la izquierda */
+    width: 100%;                      /* Asegura que tome todo el ancho del contenedor */
+    display: block;                   /* Para que text-align aplique correctamente */
+    font-family: "Pompiere", sans-serif;
+    color: var(--medium-beige-color)
+}
+
+.resume .resume-content-hr {              
+    border-top: 1px solid var(--dark-green-color) !important;
+    width: 100% !important;                     
+    margin: 10px auto 20px auto !important;              
+}
+
+.content {
+    margin-bottom: 50px !important;
+}
+
+.title-and-photo {
+    display: flex;            /* Hace que los hijos estén en fila */
+    gap: 20px;                /* Espacio entre la imagen y el texto */
+    justify-content: flex-start;  /* O space-between si quieres que se separen a los extremos */
+    align-items: center;      /* Centra verticalmente ambos elementos */
+    margin-bottom: 20px;
+}
+
+.element-photo {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;   /* Mantiene proporción y recorta si es necesario */
+}
+
+.title-and-year .title {
+    color: var(--medium-beige-color);
+}
+
+.title-and-year .years {
+    color: var(--medium-beige-color);
+    font-family: "Pompiere", sans-serif;
+}
+
+.content .description {
+    text-align: justify;
+    color: var(--medium-beige-color)
+}
 
 @media screen and (max-width: 1000px) {
 
@@ -462,6 +731,17 @@ header .navbar {
         width: 100%; 
         max-width: 1200px;
         text-align: center;
+    }
+
+    /* Projects section settings*/
+    /* Ocultar flechas */
+    .swiper-slide-button {
+        display: none !important;
+    }
+
+    /* Resume section settings*/
+    .swiper-slide-button-resume{
+        display: none !important;
     }
 
 
