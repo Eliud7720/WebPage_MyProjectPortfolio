@@ -31,9 +31,9 @@
 
                 <!-- Menu elements -->
                 <button id="nav-close-button" class="fas fa-times"></button>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Who am I?</a></li>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Projects</a></li>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Resume</a></li>
+                <li clas="nav-item"> <a href="#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="#Resume" class = "nav-link">Resume</a></li>
             </ul>
 
             <button id="nav-open-button" class="fas fa-bars"></button>
@@ -45,7 +45,7 @@
     <main>
 
         <!-- My description section-->
-         <section class="my-description">
+         <section class="my-description" id="Eliud">
 
             <div class="photo">
                 <img src="images/base/Eliud-image.png" alt="Eliud-photo" class="my-photo">                      
@@ -58,7 +58,7 @@
 
                     <div class="description-title">
 
-                        <h1 class = "name">M.C.B.G Eliud Aguilar</h1>
+                        <h1 class = "name">M.C.B.G Eliud Ulises Aguilar Durán</h1>
                         <h1 class = "title">Data Scientist | Bioinformatic</h1>
 
                     </div>
@@ -66,14 +66,21 @@
                     <div class="description-content">
 
                         <p>
-                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-                        Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.
-                        Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.
-                        Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.
-                        Fusce aliquet pede non pede. Suspendisse dapibus lorem pellentesque magna. Integer nulla.
-                        Donec blandit feugiat ligula. Donec hendrerit, felis et imperdiet euismod, purus ipsum pretium metus, in lacinia nulla nisl eget sapien. Donec ut est in lectus 
-                        
+                        Hello! My name is <b>Eliud Aguilar</b>, and I am passionate about <b>programming, statistics, and data science</b>. I have nearly two years of experience developing data analysis and machine learning projects, both in research and practical applications.
+                        I have worked on projects ranging from <b>statistical analysis in Python and R</b>, to developing machine learning and deep learning models using <b>Scikit-learn, TensorFlow, and KNIME</b>, focused on areas such as drug discovery and object detection in medical imaging.
+                        </p>
+
+                        <p>
+                            <i>Some of my key achievements include:</i>
+                            <ol>
+                            <li><strong>Best Software Award</strong> from (IPN 2024).</li>
+                            <li><strong>Second place in scientific posters</strong> at the Symposium Current Trends in Drug Discovery and Development (UNAM 2025), presenting ML models to predict inhibitory compounds related to Alzheimer’s and DM2.</li>
+                            <li><strong>IBM Data Scientist Professional Certificate</strong>.</li>
+                            </ol>
+                        </p>
+
+                        <p>
+                            In addition to my master’s project, I collaborated on several other projects. Most recently, I colaborated developing a <b>YOLO-based</b> neutrophil detection model with a team from a Texas university. This model allowed us to compare two groups of rheumatoid arthritis patients—those who had taken a specific drug and those who had not—reducing analysis time by nearly <b>100%</b> by processing only <b>2% of the images</b>.
                         </p>
 
                         <hr class="description-hr"> 
@@ -164,7 +171,7 @@
         
         <!-- My projects-->
 
-         <section class="projects-section">
+         <section id="projects" class="projects-section">
             <div class="section-title">
                 <h1>My Projects</h1>
                 <hr>
@@ -257,7 +264,7 @@
 
 
         <!-- My resume-->
-        <section class="resume-section">
+        <section id="Resume" class="resume-section">
             <div class="section-title">
                 <h1>My Resume</h1>
                 <hr>
@@ -268,6 +275,7 @@
                         <ul class="swiper-wrapper">
 
 
+                            <!-- Education -->
                             <li class="swiper-slide">
                                 <div class="resume">
                                     <h1 class="title-name">EDUCATION</h1>
@@ -278,10 +286,10 @@
                                         <div class="content">
 
                                             <div class="title-and-photo">
-                                                <img class= "element-photo" src="images/base/Eliud-image.png" alt="">
+                                                <img class= "element-photo" src="images/base/IPN.png" alt="IPN_logo">
                                                 <div class="title-and-year">
                                                     <h2 class="title">
-                                                    Master degree in genomic biotechnology
+                                                    Master degree in Genomic Biotechnology
                                                     </h2>
                                                     <h2 class="years">
                                                     2023-2025
@@ -289,8 +297,217 @@
                                                 </div>
 
                                             </div>
+                                                <ul style="list-style: disc; padding-left: 20px;">
+                                                <li><strong>First Place</strong>, <em>Best Software Award 2024</em> – <strong>Instituto Politécnico Nacional (IPN)</strong>.</li>
+
+                                                <li><strong>Second place</strong> in scientific posters at the <em>Symposium Current Trends in Drug Discovery and Development</em> (<strong>UNAM 2025</strong>), presenting <strong>Machine Learning models</strong> to predict inhibitory compounds related to <strong>Alzheimer’s</strong> and <strong>Type 2 Diabetes (DM2)</strong>.</li>
+
+                                                <li><strong>Developed 60 Machine Learning &amp; Deep Learning models</strong> (Multilayer Perceptrons, Random Forest, SVM, XGBoost, and Logistic Regression) to predict the activity of molecules against <strong>EGFR</strong>, <strong>MAPK1</strong>, <strong>SRC</strong>, and <strong>STAT3</strong>, identifying <strong>4 compounds</strong> capable of inhibiting <strong>3 of these proteins</strong>, which are associated with the <strong>Alzheimer–DM2 relationship</strong>.</li>
+
+                                                <li><strong>Certifications:</strong>
+                                                    <ul style="list-style: circle; padding-left: 25px;">
+                                                    <li><strong>IBM Data Science</strong>.</li>
+                                                    <li><strong>AWS</strong> – Getting Started with Compute (EC2), Databases (RDS), Storage (S3).</li>
+                                                    <li><strong>Basic Proficiency</strong> in <strong>KNIME Analytics Platform</strong>.</li>
+                                                    <li><strong>Data Analytics with Python (FCC)</strong>.</li>
+                                                    </ul>
+                                                </li>
+                                                </ul>
+
+                                        </div>
+
+
+
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images\base\UAT.png" alt="UAT_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    Degree in Chemical Engineering
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    2018-2022
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <ul style="list-style: disc; padding-left: 20px;">
+                                            <li><strong>Graduated with Honors</strong> (<strong>GPA: 9.96</strong>), <em>Thesis and Professional Examination accredited</em>.</li>
+
+                                            <li><strong>Green Belt Six Sigma Certificate</strong> – <em>International Six Sigma Institute</em>.</li>
+
+                                            <li><strong>Scientific Computing with Python (FCC)</strong> – applied <strong>Python</strong> &amp; <strong>pandas</strong> to solve complex problems in <strong>Chemical Engineering</strong>.</li>
+
+                                            <li><strong>NOM 009, 017, 019, 025 &amp; 026 Certification</strong> – <em>Secretaría del Trabajo y Previsión Social (STPS)</em>.</li>
+                                            </ul>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                        
+                            </li>
+
+
+                            <!-- Work experience -->
+                            <li class="swiper-slide">
+                                <div class="resume">
+                                    <h1 class="title-name">WORK EXPERIENCE</h1>
+                                    <hr class="resume-content-hr">
+
+                                    <div class="resume-content">
+                                        
+
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images\base\Maletin.png" alt="Wallet_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    
+                                                    Data Scientist | Data Analyst – Freelance Projects
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    2023-2025
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <ul style="list-style: disc; padding-left: 20px;">
+                                            <li><strong>Developed 46 Machine Learning models</strong> (<strong>SVM</strong>, <strong>Random Forest</strong>, <strong>XGBoost</strong>, and <strong>Logistic Regression</strong>) to predict the <strong>potential activity of compounds inhibiting JAK2</strong>, identifying <strong>~900 compounds</strong> with a <strong>probability &gt; 0.9</strong> of inhibition.</li>
+
+                                            <li><strong>Developed a web scraping script</strong> for the chemical database <strong>ProTox</strong> to <strong>automate toxicity prediction</strong> of compounds, <strong>reducing analysis time significantly</strong>.</li>
+
+                                            <li><strong>Applied inferential statistics</strong> (<strong>Kruskal–Wallis test</strong>) to identify <strong>species uniquely associated with autistic patients</strong> compared to non-autistic controls.</li>
+
+                                            <li><strong>Built a Python script</strong> using multiple libraries to <strong>automate the calculation of molecular interactions</strong>, <strong>reducing manual effort</strong> and <strong>speeding up analysis</strong>.</li>
+
+                                            <li><strong>Developed a YOLO deep learning model</strong> to identify <strong>healthy neutrophils</strong> and those undergoing <strong>netosis</strong> in images, enabling <strong>high-throughput analysis</strong> to <strong>compare drug-treated and control groups</strong> and <strong>assess drug efficacy</strong>.</li>
+                                            </ul>
+
+                                        </div>
+
+
+
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images/base/IPN.png" alt="IPN_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    Intern at the Experimental Biotechnology Laboratory
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    SEP 2022 - DEC 2022
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <h3><strong>Position:</strong> Laboratory Assistant</h3>
+
+                                        <ul>
+                                        <li><strong>Collected, measured, and monitored quantitative data</strong> from <strong>hydroponic systems</strong>, including <strong>pH</strong> and <strong>electrical conductivity</strong>, ensuring <strong>accurate experimental results</strong>.</li>
+
+                                        <li><strong>Prepared and standardized solutions</strong>, applying <strong>precise calculations</strong> for <strong>optimal system performance</strong>.</li>
+
+                                        <li><strong>Assembled and optimized hydroponic systems</strong>, thoroughly <strong>documenting processes and outcomes</strong> for <strong>reproducibility</strong>.</li>
+
+                                        <li><strong>Cultivated diverse plant species</strong> while <strong>systematically recording growth</strong> and <strong>environmental parameters</strong> for in-depth <strong>data analysis</strong>.</li>
+
+                                        <li><strong>Assisted in designing experimental setups</strong>, contributing to <strong>process optimization</strong> and <strong>data-driven decision making</strong>.</li>
+                                        </ul>
+
+                                        </div>
+
+
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images\base\UAT.png" alt="UAT_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    Laboratory Assistant
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    FEB 2022 - AUG 2022
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <ul>
+                                            <li><strong>Operated and calibrated laboratory instruments</strong> (ovens, balances, muffle furnaces, etc.), ensuring <strong>accurate measurements</strong> and <strong>reliable experimental data</strong>.</li>
+
+                                            <li><strong>Maintained, organized, and monitored laboratory equipment</strong> to guarantee <strong>consistent</strong> and <strong>high-quality data collection</strong>.</li>
+
+                                            <li><strong>Supported students</strong> in laboratory exercises, providing <strong>guidance</strong> on experimental procedures and proper <strong>data recording practices</strong>.</li>
+
+                                            <li><strong>Assisted in documenting experimental results</strong> and observations <strong>systematically</strong> for <strong>analysis</strong> and <strong>reproducibility</strong>.</li>
+                                            </ul>
+
+                                        </div>
+
+
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images\base\Corning.jpg" alt="Corning_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    Productor operator
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    JUN 2022 - AUG 2022
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                            <h3><strong>Position:</strong> General Operator</h3>
+
+                                            <ul style="list-style: disc; padding-left: 20px;">
+                                            <li><strong>Followed standardized procedures and protocols</strong> for <strong>fiber optic cable polishing</strong>, ensuring <strong>consistent quality</strong> and adherence to <strong>technical specifications</strong>.</li>
+
+                                            <li><strong>Monitored and maintained polishing equipment</strong>, <strong>documenting operational parameters</strong> to support <strong>process optimization</strong> and <strong>reproducibility</strong>.</li>
+
+                                            <li><strong>Assisted adjacent production lines</strong> and <strong>coordinated with team members</strong>, ensuring <strong>smooth workflow</strong> and <strong>accurate task execution</strong>.</li>
+
+                                            <li><strong>Recorded detailed operational data</strong> and observations to support <strong>quality control</strong> and <strong>process improvement initiatives</strong>.</li>
+                                            </ul>
+
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                        
+                            </li>
+
+
+                            <!-- Prizes -->
+                            <li class="swiper-slide">
+                                <div class="resume">
+                                    <h1 class="title-name">PRIZES</h1>
+                                    <hr class="resume-content-hr">
+
+                                    <div class="resume-content">
+                                        
+                                        <div class="content">
+
+                                            <div class="title-and-photo">
+                                                <img class= "element-photo" src="images/base/IPN.png" alt="IPN_logo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    Best Software Award from (IPN 2024)
+                                                    </h2>
+                                                    <h2 class="years">
+                                                    2024
+                                                    </h2>
+                                                </div>
+
+                                            </div>
                                             <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+                                                I developed a specialized software tool designed to streamline the molecular docking analysis workflow. The application enables high-throughput docking with large compound libraries and fully automates key steps, including ligand preparation, protein preprocessing, and docking execution. This significantly reduces manual effort, improves reproducibility, and accelerates the identification of potential bioactive compounds in virtual screening campaigns.
                                             </p>
 
                                         </div>
@@ -300,20 +517,22 @@
                                         <div class="content">
 
                                             <div class="title-and-photo">
-                                                <img class= "element-photo" src="images/base/Eliud-image.png" alt="">
+                                                <img class= "element-photo" src="images\base\UNAM_logo.png" alt="UNAM_logo">
                                                 <div class="title-and-year">
                                                     <h2 class="title">
-                                                    Degree in Chemical Engineering
+                                                    Second place in scientific posters at the Symposium Current Trends in Drug Discovery and Development (UNAM 2025)
                                                     </h2>
                                                     <h2 class="years">
-                                                    2023-2025
+                                                    2025
                                                     </h2>
                                                 </div>
 
                                             </div>
-                                            <p class="description">
-                                                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna. Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-                                            </p>
+
+                                            <p>I've presented advances from my thesis project, including:</p>
+                                            <ul style="list-style: disc; padding-left: 20px;">
+                                            <li><strong>Developed 60 Machine Learning &amp; Deep Learning models</strong> (Multilayer Perceptrons, Random Forest, SVM, XGBoost, and Logistic Regression) to predict the activity of molecules against <strong>EGFR</strong>, <strong>MAPK1</strong>, <strong>SRC</strong>, and <strong>STAT3</strong>, identifying <strong>4 compounds</strong> capable of inhibiting <strong>3 of these proteins</strong>, associated with the <strong>Alzheimer–DM2 relationship</strong>.</li>
+                                            </ul>
 
                                         </div>
 
@@ -325,10 +544,84 @@
                             </li>
 
 
-
+                            <!-- Soft skills -->
                             <li class="swiper-slide">
-                                
+                                <div class="resume">
+                                    <h1 class="title-name">SOFT SKILLS</h1>
+                                    <hr class="resume-content-hr">
+
+                                    <div class="resume-content">
+                                        
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    1.- Problem solving
+                                                    </h2>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    2.- Analytical thinking
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    3.- Communication
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    4.- Collaboration and Teamwork
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    5.- Adaptability
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="content">
+                                            <div class="title-and-photo">
+                                                <div class="title-and-year">
+                                                    <h2 class="title">
+                                                    6.- Attention to detail
+                                                    </h2>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                        
                             </li>
+
+                            
 
  
                         </ul>
@@ -344,7 +637,12 @@
 
 
         <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
     </main>
+    
 
 
     <!--Custom Script-->

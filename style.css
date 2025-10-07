@@ -67,12 +67,11 @@ img {
 }
 
 main {
-    padding-top: 130px;
+    padding-top: 100px;
 }
 
 main section {
     margin-top: 30px;
-    margin-bottom: 50px;
 }
 
 /* --------------- navbar styling ---------------*/
@@ -163,7 +162,7 @@ header .navbar {
 
 .my-description .photo {
     flex: 1;
-    max-width: 45%;
+
 }
 
 .my-description .photo img {
@@ -179,7 +178,7 @@ header .navbar {
 
 .my-description .description-section {
     flex: 2;
-    max-width: 55%;
+    max-width: 70%;
 }
 
 .description-title .name {
@@ -199,6 +198,15 @@ header .navbar {
 
 .description-content {
     padding-bottom: 10px;
+}
+
+.description-content p {
+    margin-bottom: 5px;
+    font-size: medium;
+}
+
+.description-content ol {
+    margin-left: 50px;
 }
 
 .description-content .description-hr {
@@ -550,7 +558,7 @@ header .navbar {
 .swiper-slide-button-resume {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%); /* centra verticalmente */
+  transform: translateY(-50%);
   z-index: 10;
   font-size: 35px;
   color: var(--dark-green-color) !important;
@@ -585,9 +593,9 @@ header .navbar {
 }
 
 .resume .title-name {
-    text-align: left !important;      /* Alinea texto a la izquierda */
-    width: 100%;                      /* Asegura que tome todo el ancho del contenedor */
-    display: block;                   /* Para que text-align aplique correctamente */
+    text-align: left !important;
+    width: 100%;
+    display: block;
     font-family: "Pompiere", sans-serif;
     color: var(--medium-beige-color)
 }
@@ -603,17 +611,17 @@ header .navbar {
 }
 
 .title-and-photo {
-    display: flex;            /* Hace que los hijos estén en fila */
-    gap: 20px;                /* Espacio entre la imagen y el texto */
-    justify-content: flex-start;  /* O space-between si quieres que se separen a los extremos */
-    align-items: center;      /* Centra verticalmente ambos elementos */
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center;
     margin-bottom: 20px;
 }
 
 .element-photo {
     width: 80px;
     height: 80px;
-    object-fit: cover;   /* Mantiene proporción y recorta si es necesario */
+    object-fit: cover;
 }
 
 .title-and-year .title {
@@ -628,6 +636,27 @@ header .navbar {
 .content .description {
     text-align: justify;
     color: var(--medium-beige-color)
+}
+
+.resume-content ul {
+  list-style: disc;        /* tipo de viñeta: • */
+  padding-left: 20px;      /* agrega espacio para que se vean */
+  margin-left: 0;
+}
+
+.resume-content ul ul {
+  list-style: circle;      /* viñetas secundarias: ○ */
+  padding-left: 25px;
+}
+
+/* footer */
+.site-footer {
+    background-color: var(--dark-green-color);
+    color: white;
+    text-align: center;
+    padding: 45px 0;
+    width: 100%;
+    font-size: 16px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -730,16 +759,14 @@ header .navbar {
     .my-description .description-section {
         width: 100%; 
         max-width: 1200px;
-        text-align: center;
+        text-align: justify;
     }
 
     /* Projects section settings*/
-    /* Ocultar flechas */
     .swiper-slide-button {
         display: none !important;
     }
 
-    /* Resume section settings*/
     .swiper-slide-button-resume{
         display: none !important;
     }
