@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Exploratory Data Analysis and Preprocessing of EGFR, MAPK1, SRC, and STAT3 Inhibitors Reported in the ChEMBL Compound Library</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Dementia, primarily <strong>Alzheimer’s Disease (AD)</strong>, is one of the leading causes of <strong>disability and mortality</strong> in older adults, affecting <strong>1.3 million people in Mexico</strong>. <strong>Type 2 diabetes (T2D)</strong> increases the risk of developing AD by 1.5 to 2 times and is associated with <strong>cerebral insulin resistance, inflammation, and oxidative stress</strong>. <strong>Antidiabetic drugs</strong> have shown cognitive improvements in patients with AD or Mild Cognitive Impairment. To date, no <strong>specific inhibitors</strong> targeting proteins involved in the AD-T2D interaction have been identified. Advances in <strong>artificial intelligence and machine learning</strong> provide tools to discover new inhibitors with high precision and efficiency, optimizing drug development. Therefore, employing machine learning models could enable the identification of <strong>potential inhibitors for the AD-T2D association</strong> with high accuracy, improve their selection, and reduce the costs associated with drug development. A study identified a total of <strong>10 proteins linking AD with T2D</strong>, with <strong>EGFR, MAPK1, SRC, and STAT3</strong> being the most prominent. Given the large number of assays reporting <strong>IC50 values</strong>, machine learning models can be trained to predict IC50 activity for each protein.
+                    </p>
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        <p>Analyze and preprocess data on <strong>EGFR, MAPK1, SRC, and STAT3 inhibitors</strong> reported in the <strong>ChEMBL compound library</strong> to obtain <strong>clean datasets</strong> and identify <strong>compounds shared among all four proteins</strong>.</p>
+                    </p>
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+            Experimental data on inhibition was collected from the ChEMBL web chemolibrary for the proteins <strong>EGFR</strong>, <strong>MAPK1</strong>, <strong>SRC</strong>, and <strong>STAT3</strong>, which have IDs <strong>CHEMBL203</strong>, <strong>CHEMBL4040</strong>, <strong>CHEMBL267</strong>, and <strong>CHEMBL4026</strong> in CSV format. Each file was loaded as a <strong>pandas dataframe</strong> in Python. The compound data for each file consisted of <strong>47 columns</strong> describing each assay of a specific compound against the protein, with columns including information such as the <strong>compound name</strong>, <strong>SMILES</strong> (a way to represent chemical compounds in cheminformatics), and <strong>IC50 assay results</strong>. Only the following columns were selected: <strong>"Molecule ChEMBL ID"</strong>, <strong>"Molecule Name"</strong>, <strong>"Smiles"</strong>, <strong>"Standard Type"</strong>, <strong>"Standard Relation"</strong>, <strong>"Standard Value"</strong>, <strong>"Standard Units"</strong>, <strong>"Assay Type"</strong>, <strong>"Molecular Weight"</strong>, <strong>"BAO Label"</strong>, <strong>"Action Type"</strong>.
+            </p>
+
+            <p class="raw-text">The following table summarizes the number of compounds per protein.</p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Protein</th>
+                <th>Original Number of Compounds</th>
+                <th>Columns</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>EGFR</td>
+                <td>17286</td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>MAPK1</td>
+                <td>4722</td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>SRC</td>
+                <td>5202</td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>STAT3</td>
+                <td>1224</td>
+                <td>11</td>
+                </tr>
+            </tbody>
+            </table>
+
+
+            <h3 class="subtitle-raw">
+                Data Preprocessing
+            </h3>
+
+            <p class="raw-text">For the data of each protein, the amount of missing data in each column was analyzed using the pandas <code>.isna().sum()</code> method. Results like the following were obtained:</p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Column</th>
+                <th>Missing Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Molecule ChEMBL ID</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                <td>Molecule Name</td>
+                <td>14910</td>
+                </tr>
+                <tr>
+                <td>Smiles</td>
+                <td>32</td>
+                </tr>
+                <tr>
+                <td>Standard Type</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                <td>Standard Relation</td>
+                <td>1379</td>
+                </tr>
+                <tr>
+                <td>Standard Value</td>
+                <td>1379</td>
+                </tr>
+                <tr>
+                <td>Standard Units</td>
+                <td>1237</td>
+                </tr>
+                <tr>
+                <td>Assay Type</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                <td>Molecular Weight</td>
+                <td>11</td>
+                </tr>
+                <tr>
+                <td>BAO Label</td>
+                <td>0</td>
+                </tr>
+            </tbody>
+            </table>
+            
+            <p class="raw-text">In the previous table, it can be seen that there are missing values in the columns <strong>Molecule Name</strong>, <strong>Smiles</strong>, <strong>Standard Relation</strong>, <strong>Standard Value</strong>, <strong>Standard Units</strong>, and <strong>Molecular Weight</strong>. Rows with missing values in <strong>Standard Relation</strong>, <strong>Standard Value</strong>, <strong>Standard Units</strong>, or <strong>SMILES</strong> were removed using the <code>dropna()</code> method. However, rows with missing values in <strong>Molecule Name</strong> were retained, since in many cases molecules do not yet have an assigned name, and rows with missing values in <strong>Molecular Weight</strong> were kept because if the molecule's <strong>SMILES</strong> is present, it can be used to calculate the molecular weight.</p>
+
+            <p class="raw-text">The data in the <strong>Standard Units</strong> column was analyzed to check whether the assay data had consistent units and, if not, to perform the necessary conversions when possible. This analysis was carried out using the <code>value_counts()</code> method. The following table shows an example of the units determined with <code>value_counts()</code>.</p>
+
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Standard Units</th>
+                <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>nM</td>
+                <td>15805</td>
+                </tr>
+                <tr>
+                <td>ug.mL-1</td>
+                <td>86</td>
+                </tr>
+                <tr>
+                <td>/uM</td>
+                <td>6</td>
+                </tr>
+            </tbody>
+            </table>
+
+
+            <p class="raw-text">As shown in the previous table, the majority unit type in the assays is <strong>nM</strong>; however, there are 86 assays with units <strong>ug.mL-1</strong> and 6 with units <strong>/uM</strong>. The necessary unit conversions were carried out using masks and the corresponding equations with <strong>pandas</strong>.</p>
+
+            <p class="raw-text">Subsequently, duplicates in the <strong>Molecule ChEMBL ID</strong> and <strong>Molecule Name</strong> columns were removed in order to retain only a single random assay per molecule.</p>
+
+            <p class="raw-text">Additionally, only assays with exact values or results, recorded in the <strong>"Standard Relation"</strong> column as <strong>"="</strong>, were retained, and assays with censored results, i.e., values marked as <strong>">"</strong> or <strong>"<"</strong>, were discarded because working with censored data is not recommended in machine learning models.</p>
+
+            <p class="raw-text">Regarding the <strong>Assay Type</strong> column, only rows corresponding to protein binding assays, denoted as <strong>"B"</strong>, were retained. In the <strong>BAO Label</strong> column, only rows with assays labeled as <strong>"single protein format"</strong> were kept.</p>
+
+            <p class="raw-text">The following table shows the number of compounds before and after data preprocessing:</p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Protein</th>
+                <th>Original Number of Compounds</th>
+                <th>Number of Compounds After Data Processing</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>EGFR</td>
+                <td>17286</td>
+                <td>3974</td>
+                </tr>
+                <tr>
+                <td>MAPK1</td>
+                <td>4722</td>
+                <td>2764</td>
+                </tr>
+                <tr>
+                <td>SRC</td>
+                <td>5202</td>
+                <td>2564</td>
+                </tr>
+                <tr>
+                <td>STAT3</td>
+                <td>1224</td>
+                <td>323</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">A new column was created based on the <strong>IC50</strong> information, where values with an IC50 less than or equal to 1000 nM were considered <strong>"Active"</strong> and values greater than 1000 nM were considered <strong>"Inactive"</strong>. The following figure shows the distribution of active and inactive compounds for each protein:</p>
+            
+            <img src="projects_images\EDA_thesis\Distribucion_por_proteina.png" alt="Distribucion" class="raw-image">
+
+
+            <p>If each class is reported as a percentage of the total, it is shown as follows, where it can be observed that most classes have an imbalance of less than 40%:</p>
+
+            <img src="projects_images\EDA_thesis\Umbalance.png" alt="Umbalance" class="raw-image">
+
+            <p>The compounds shared among the cleaned data of the proteins were analyzed, resulting in the following graph created in <strong>Python</strong>:</p>
+
+            <img src="projects_images\EDA_thesis\Compartidos.png" alt="Shared" class="raw-image">
+
+            <p>As seen in the previous graph, the first four columns represent unique compounds for each protein, while the rest represent shared compounds. There were <strong>12 compounds shared between MAPK1 and EGFR</strong>, <strong>392 between SRC and EGFR</strong>, <strong>13 between SRC and MAPK1</strong>, and finally <strong>4 shared among SRC, MAPK1, and EGFR</strong>. These findings suggest that it is possible to identify new compounds through machine learning models that could potentially inhibit up to four proteins.</p>
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+            <li>The preprocessing of ChEMBL data for EGFR, MAPK1, SRC, and STAT3 reduced the number of compounds significantly, ensuring cleaner datasets for machine learning models.</li>
+            <li>Missing data was carefully handled: rows with missing values in key experimental results were removed, while columns like <strong>Molecule Name</strong> and <strong>Molecular Weight</strong> were preserved when possible.</li>
+            <li>Unit inconsistencies in <strong>Standard Units</strong> were standardized, ensuring assay results are comparable across proteins.</li>
+            <li>Only reliable assays were retained by filtering for exact values (“=”) and excluding censored data (">", "<").</li>
+            <li>Duplicates were removed to avoid bias, and only protein binding assays and single protein formats were conserved.</li>
+            <li>A binary classification column (<strong>Active vs. Inactive</strong>) was created using an IC50 threshold of 1000 nM, enabling supervised learning approaches.</li>
+            <li>Most datasets showed class imbalances below 40%, which is manageable for machine learning algorithms with proper handling.</li>
+            <li>Shared compound analysis revealed overlaps among proteins (e.g., 392 compounds shared between SRC and EGFR), highlighting potential multitarget inhibitors.</li>
+            <li>These findings demonstrate the feasibility of using machine learning to predict IC50 values and discover new compounds that could inhibit multiple proteins related to Alzheimer’s Disease and Type 2 Diabetes.</li>
+            </ul>
+            
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

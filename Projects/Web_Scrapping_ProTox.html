@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Web Scraping of ProTox to Automate Toxicity Prediction of a Compound Set</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                    <p class="raw-text">After the drug discovery phase (the stage in which the researcher determines compounds that inhibit or potentially inhibit the protein of interest), an <strong>in silico prediction</strong> is carried out to predict potential toxicity in order to perform another screening and only retain molecules that potentially do not have toxic effects on humans.</p>
+
+                    <p class="raw-text"><strong>ProTox</strong> is a website that includes a wide variety of machine learning tools to predict the toxicity of various aspects; however, it only allows the toxicity of a single molecule to be calculated at a time.</p>
+
+                    <p class="raw-text">Therefore, for this project, I was hired to develop a <strong>script</strong> that would allow ProTox to automatically work with a set of molecules and carry out predictions.</p>
+                    </p>
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Develop a <strong>Python script</strong> that automatically performs predictions for a set of compounds on the <strong>ProTox</strong> page and stores the results in <strong>CSV format</strong>, respecting the page rules at all times.
+                    </p>
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                About Protox
+            </h3>
+
+            <p class="raw-text"><strong>ProTox</strong> is an online platform that provides a variety of <strong>machine learning tools</strong> to predict the potential <strong>toxicity</strong> of chemical compounds. It helps researchers assess whether molecules might have harmful effects on humans. However, the standard ProTox interface only allows predictions for one molecule at a time, which can be limiting for large datasets.</p>
+            <p class="raw-text"> 
+            The following screenshots show the <strong>ProTox page</strong>, specifically the section where all stages of the prediction process are configured. Here, the <em>SMILES</em> of the compound of interest is entered, and all relevant prediction options are selected for analysis.
+            </p>
+
+            <img src="projects_images\Protox_webScrapping\ProTox_screenshot.png" alt="Protox_1" class="raw-image">
+            <img src="projects_images\Protox_webScrapping\ProTox_screenshot_2.png" alt="Protox_2" class="raw-image">
+
+            <h3 class="subtitle-raw">
+                Script Development
+            </h3>
+
+            <p class="raw-text">
+            Due to the intensive work required to analyze, for example, 60 molecules manually and compile all the results into a single DataFrame, I developed a script that automatically reads data from CSV files, performs the predictions on the ProTox website, and finally combines all results into a single CSV file.
+            </p>
+
+            <p class="raw-text">
+            For the development of this script, the <strong>Python Selenium library</strong> was used, along with <strong>pandas</strong> and <strong>numpy</strong> to work with <strong>DataFrames</strong>. The script is designed to load a <strong>CSV file</strong> that contains a column named <strong>SMILES</strong> with the compounds' SMILES strings. It then automatically opens the <strong>Mozilla browser</strong>, inputs each SMILES, selects all the required prediction options, and finally saves all the results into a single <strong>CSV file</strong>.
+            </p>
+
+            <p class="raw-text">
+            The following video demonstrates the functionality of the script. It shows how the script automatically enters the <strong>SMILES</strong> strings, clicks all the required buttons, and ultimately retrieves the prediction results.
+            </p>
+
+            <video class = "raw-video" autoplay loop muted playsinline width="500">
+                <source src="projects_images\Protox_webScrapping\Protox_example_scrapping.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <p>
+            The results produced by the script are as follows:
+            </p>
+
+            <img src="projects_images\Protox_webScrapping\Table_screenshot.png" alt="Protox_2" class="wide-image">
+
+            
+            <h3 class="subtitle-raw">
+                Example of use
+            </h3>
+
+            <p class="raw-text">
+            This script has been used countless times. In my case, I analyzed up to <strong>200 different compounds</strong> to determine their potential <strong>polypharmacological activity</strong>—that is, whether a compound could inhibit more than one protein, which is undesirable in drug design as it indicates potential side effects and toxicological risks.
+            </p>
+
+            <p class="raw-text">
+            After obtaining the results in the format shown previously, I loaded the data using <strong>pandas</strong> in Python and created a new column representing the <strong>number of proteins potentially inhibited by each compound</strong>. I then grouped all compounds by the number of proteins they inhibited and identified the specific proteins for compounds inhibiting 1, 2, and more proteins. Finally, I generated a <strong>histogram</strong> showing these distributions. 
+            </p>
+
+            <p class="raw-text">
+            Additionally, for each group, I identified the <strong>maximum common substructure</strong> among the compounds, which is displayed at the top of the following histogram.
+            </p>
+
+            <img src="projects_images\Protox_webScrapping\Histogram_example.png" alt="Protox_2" class="raw-image">
+
+            <p class="raw-text">
+            As shown in the previous histogram, the vast majority of compounds exhibited only <strong>1 to 2 proteins</strong> as polypharmacological activity. The top section shows that molecules with this low activity were similar to <strong>staurosporine</strong> and other <strong>heterocyclic molecules</strong>. However, at least two heterocyclic molecules showed potential activity against <strong>5 or more proteins</strong>.
+            </p>
+
+            <p class="raw-text">
+            The proteins potentially inhibited are displayed at the top, and the <strong>“+” sign</strong> indicates that the compound inhibits this protein in addition to the previous ones, showing a trend where certain compounds inhibited the same proteins while also affecting additional ones.
+            </p>
+
+            <!-- Conclusions-->
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+            <li>The project automated toxicity predictions on ProTox, which normally allows only one molecule at a time.</li>
+            <li>The script significantly reduced manual workload, allowing analysis of large datasets, up to <strong>200 compounds</strong> in my case.</li>
+            <li>Results were analyzed to determine <strong>polypharmacological activity</strong>, i.e., the number of proteins each compound could potentially inhibit, identifying potential side effects and toxicological risks.</li>
+            </ul>
+
+
+
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

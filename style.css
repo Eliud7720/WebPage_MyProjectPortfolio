@@ -437,6 +437,7 @@ header .navbar {
 
 .project .project-tags {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     padding: 0 2%;
 }
@@ -465,6 +466,66 @@ header .navbar {
 .tag-pandas {
     color:  rgba(255, 0, 212, 0.5);
     background-color: rgba(255, 0, 212, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-deep-learning {
+    color:  rgba(193, 18, 73, 0.5);
+    background-color: rgba(193, 18, 73, 0.3);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-YOLO {
+    color:  rgba(208, 117, 27, 0.5);
+    background-color: rgba(208, 117, 27, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-Selenium {
+    color:  rgba(27, 151, 208, 0.5);
+    background-color: rgba(27, 151, 208, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-rdkit {
+    color:  rgba(73, 234, 132, 0.5);
+    background-color: rgba(73, 234, 132, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-rdkit {
+    color:  rgba(73, 234, 132, 0.5);
+    background-color: rgba(73, 234, 132, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-matplotlib {
+    color:  rgba(234, 73, 159, 0.5);
+    background-color: rgba(234, 73, 159, 0.2);
     padding: 3px 3px;
     border-radius: 6px;
     margin-top: 5px;

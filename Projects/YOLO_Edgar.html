@@ -21,7 +21,7 @@
         <nav class="navbar">
 
             <!-- Name -->
-            <a href="#" class="nav-logo">
+            <a href="../index.html" class="nav-logo">
             <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
             <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
             </a>
@@ -31,9 +31,9 @@
 
                 <!-- Menu elements -->
                 <button id="nav-close-button" class="fas fa-times"></button>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Who am I?</a></li>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Projects</a></li>
-                <li clas="nav-item"> <a href="#" class = "nav-link">Resume</a></li>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
             </ul>
 
             <button id="nav-open-button" class="fas fa-bars"></button>
@@ -98,24 +98,94 @@
             <img src="projects_images\YOLO\Bad_neutrophils.png" alt="Neutrofilos" class="raw-image">
 
             <h3 class="subtitle-raw">
-                EDA
+                Sampling and splitting the data
             </h3>
 
             <p class="raw-text">
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-                Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-                Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-                Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
-                Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.
-                Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.
+                Considering both the group of patients who received the <strong>drug</strong> and those who did not, a total of nearly <strong>3000 images</strong> were obtained, of which only <strong>1185</strong> were of interest, as they showed the <strong>stained nuclei of the cells</strong>.
+                Of the total images, only <strong>25</strong> were sampled and divided into two sets: <strong>80% for training</strong> and <strong>20% for testing</strong>.
             </p>
 
+            <h3 class="subtitle-raw">
+                About YOLO models
+            </h3>
+
+            <p>
+            YOLO (<strong>You Only Look Once</strong>) is a <strong>deep learning model</strong> based on convolutional neural networks that enables <strong>object detection and classification in images or videos</strong> with <strong>high speed and accuracy</strong>. It analyzes the entire image in a single pass, generating <strong>bounding boxes</strong> and classifying the objects within them. This makes it ideal for <strong>real-time processing</strong> and various applications, including <strong>cell detection, counting healthy neutrophils and those undergoing netosis</strong>, or identifying structures such as <strong>NETs</strong> in microscopy images.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Labeling-images
+            </h3>
             
+            <p>
+            To train the YOLO models, <strong>properly labeled images</strong> are required for each of the <strong>classes of interest</strong>. For this purpose, <strong>Label Studio</strong> was used to annotate the images. The classes were labeled as <strong>healthy neutrophils</strong>, <strong>neutrophils with netosis</strong>, and <strong>netosis networks</strong>, using the colors <strong>salmon</strong>, <strong>red</strong>, and <strong>yellow</strong>, respectively. The following images show an <strong>example of this labeling</strong>.
+            </p>
 
-            <img src="projects_images\blueprint\Ejemplo-1.png" alt="Temperatura" class="raw-image">
+            <img src="projects_images\YOLO\Classification-1.png" alt="Clasificacion_1" class="raw-image">
+            <img src="projects_images\YOLO\Classification-2.png" alt="Clasificacion_2" class="raw-image">
 
+            <h3 class="subtitle-raw">
+                Yolo Model Training
+            </h3>
+
+            <p>
+            A <strong>YOLO yolov8n model</strong> was trained in <strong>Python</strong> using the <strong>training images</strong> and evaluated on the <strong>test images</strong>.
+            The results are shown in the next table:
+            </p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <caption>YOLO summary</caption>
+            <thead>
+                <tr>
+                <th>Metric</th>
+                <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Box Precision (P)</td>
+                <td>0.837</td>
+                </tr>
+                <tr>
+                <td>Box Recall (R)</td>
+                <td>0.802</td>
+                </tr>
+                <tr>
+                <td>mAP50</td>
+                <td>0.85</td>
+                </tr>
+                <tr>
+                <td>mAP50-95</td>
+                <td>0.378</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p>
+            As observed, with so few images, an <strong>excellent overall performance of 83.7%</strong> was achieved. Although the <strong>mAP50-95</strong> appears relatively low, it is appropriate given the small dataset, and a high value in this metric is not necessary since only the <strong>correct identification of the cells</strong> matters, not the <strong>accuracy of the bounding boxes</strong>.
+            </p>
+
+            <p>
+            When performing predictions on <strong>unlabeled images</strong>, the <strong>model performed excellently</strong>, as shown in the following two images.
+            </p>
+
+            <img src="projects_images\YOLO\Predicciones_1.png" alt="Predictions_1" class="raw-image">
+            <img src="projects_images\YOLO\Predicciones_2.png" alt="Predictions_2" class="raw-image">
+
+            <p>
+            <strong>Healthy neutrophils</strong> are highlighted in <strong>blue</strong>, <strong>neutrophils with netosis</strong> in <strong>red</strong>, and the <strong>products of cells ruptured by netosis</strong> in <strong>green</strong>. Looking at the results on these images, it is clear that the <strong>models generalize very well</strong>, allowing for <strong>simpler counting</strong>. The <strong>analysis and results of the counts</strong> will not be provided as they are <strong>sensitive project information</strong>.
+            </p>
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+            <li>A <strong>YOLOv8n</strong> model was successfully trained and achieved an overall precision of <strong>83.7%</strong>, demonstrating strong performance even with a small dataset.</li>
+            <li>Although the <strong>mAP50-95</strong> metric was relatively low, it was sufficient for the goal of accurately identifying cell types rather than precise bounding box placement.</li>
+            <li>The model generalized well to unseen images, correctly highlighting healthy neutrophils (blue), neutrophils with netosis (red), and NET products (green), significantly simplifying cell counting tasks.</li>
+            </ul>
 
 
          </section>

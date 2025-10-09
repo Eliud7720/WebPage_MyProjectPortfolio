@@ -178,7 +178,7 @@ header .navbar {
 
 .about-and-objective {
     margin-top: 50px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     display: flex;
     gap: 50px;
     background-color: #EBE7E0;
@@ -216,6 +216,7 @@ header .navbar {
 .Development-title {
     font-family: "Pompiere", sans-serif;
     font-size: var(--font-size-xxl);
+    margin-top: 20px;
 }
 
 .raw-text {
@@ -233,10 +234,41 @@ header .navbar {
 }
 
 .raw-image{
-    margin-top: 10px;
+    margin-top: 20px;
     height: 400px;
     width: 400px;
     margin-right: 20px;
+}
+
+.wide-image{
+    margin-top: 20px;
+    height: 350px;
+    width: 900px;
+    margin-right: 20px;
+}
+
+.tablas {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Conclusions */
+.Conclusions_list {
+  list-style-type: disc;
+  padding-left: 2rem;
+  margin: 1.5rem 0;
+  line-height: 1.6;
+}
+
+.Conclusions_list li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+.raw-video{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 @media screen and (max-width: 1000px) {
