@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Explaining Logistic Regression Machine Learning Models Using Excel Only, Without VBA</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Machine learning has revolutionized the way we do things in the world and has solved problems that, in the past, we did not even know could be solved. Machine learning models are mainly divided into two groups: supervised and unsupervised. In the first case, algorithms of this type are used to predict a feature of an object based on its other features. While it is possible to develop machine learning models without knowing much about the mathematical equations involved, I often faced the problem that when teaching the algorithms, they were not fully understood because the formulas were not used as closely as possible without programming languages. However, since the simplest linear models (linear and logistic regression) do not involve complex optimizations, it is possible to carry out their training in Excel.
+                    </p>
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Develop and train Logistic Regression models in Excel with the aim of demonstrating how the training of machine learning models is carried out.
+                    </p>
+                </div>
+
+            </div>
+
+
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+            To explain how to train a logistic regression model, the famous <strong>Titanic dataset</strong> was used. This dataset is widely known for teaching classification models to students.
+            You can access to data by: https://www.kaggle.com/datasets/yasserh/titanic-dataset.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Logistic Regression
+            </h3>
+
+            <p class="raw-text">
+            Logistic regression models are used to predict the probability of a binary outcome, such as survival on the Titanic. Unlike linear regression, which fits a straight line, logistic regression fits an <strong>S-shaped curve</strong> using the logistic function, <strong>σ(z) = 1 / (1 + e<sup>-z</sup>)</strong>, where <strong>z = θ₀ + θ₁x</strong>. The goal of training a logistic regression model is to determine the parameters θ₀ and θ₁ that best separate the classes in the dataset. In classification, if the computed <strong>z</strong> is equal to or greater than 0, the observation is assigned to <strong>class 1</strong>, and if it is negative, it is assigned to <strong>class 0</strong>.
+            </p>
+
+            <p class="raw-text">
+            Analytical solutions exist, but for datasets with many features or large amounts of data, they can be computationally expensive. Instead, the most common method to estimate parameters is <strong>gradient descent</strong>. Gradient descent iteratively updates θ₀ and θ₁ to minimize a <strong>loss function</strong>, in this case the <strong>log loss (cross-entropy)</strong>, which measures the difference between the predicted probabilities and the actual class labels.
+            </p>
+
+            <p class="raw-text">
+            The log loss for a single data point i is calculated as: <br>
+            L<sub>i</sub> = -[Y<sub>i</sub> log(Ŷ<sub>i</sub>) + (1 - Y<sub>i</sub>) log(1 - Ŷ<sub>i</sub>)] <br>
+            where Ŷ<sub>i</sub> = σ(θ₀ + θ₁x<sub>i</sub>) is the predicted probability for element i.
+            </p>
+
+            <p class="raw-text">
+            Gradient descent involves computing the derivatives of the loss function with respect to each parameter θ and updating them iteratively: <br>
+            θ₀(new) = θ₀(old) - α (1/m) Σ (Ŷ - Y) <br>
+            θ₁(new) = θ₁(old) - α (1/m) Σ (Ŷ - Y) x
+            </p>
+
+            <p class="raw-text">
+            To apply this in Excel, we start by assuming initial parameters θ₀ = 1 and θ₁ = 1. With each iteration, these values are updated until the parameters that minimize the log loss are determined. Finally, using the logistic function, we can classify each observation: values of z ≥ 0 are assigned to class 1, and values of z < 0 are assigned to class 0.
+            </p>
+
+            <h3 class="subtitle-raw">
+            Exploratory Data Analysis
+            </h3>
+
+            <p class="raw-text">
+                After downloading the data and opening it in Excel, it will be displayed as follows:
+            </p>
+
+            <img src="projects_images\Logistic_regression\Datos_crudos_titanic.png" alt="Titanic-data" style="width:auto; height:350px;">
+
+            <p class="raw-text">
+            In Excel, we can easily calculate a wide range of <strong>descriptive statistics</strong>, such as the <strong>count of data points</strong>, the <strong>maximum and minimum values</strong>, the <strong>number of rows with missing values</strong> for a specific column, and even compute the <strong>minimum, maximum, and mean</strong> where applicable.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Describe.png" alt="Describe-data" style="width:auto; height:350px;">
+
+            <p class="raw-text">
+                As shown in the previous image, the Titanic dataset contains <strong>891 records</strong>, with <strong>177 missing values in Age</strong>, <strong>687 in Cabin</strong>, and <strong>2 in Embarked</strong>. Key insights include an <strong>average survival rate of 0.38</strong> and an <strong>average age of 29.69 years</strong>. The <strong>Fare</strong> variable represents the ticket price, with an <strong>average of 32.20</strong>. The <strong>PClass</strong> variable refers to ticket class (1, 2, or 3), where class 1 indicates higher social status; the <strong>average value of 2.3</strong> shows that most passengers traveled in class 2 or 3. <strong>Embarked</strong> indicates the port where each passenger boarded. For this study, the columns <strong>Name</strong>, <strong>SibSp</strong>, <strong>Arch</strong>, and <strong>Ticket</strong> will not be considered.
+            </p>
+
+            <p class="raw-text">
+                First, the analysis begins by examining the <strong>categorical variables individually</strong> to observe the <strong>class distribution</strong> of each. For this purpose, we can use the <strong>pivot tables</strong> available in Excel.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Dinamic-tables-1.png" alt="Dinamic-table-1" style="width:auto; height:250px;">
+                
+            <p class="raw-text">
+                From the previous tables, we can observe that the <strong>majority of passengers were male</strong> and that most people <strong>embarked at port S</strong>.
+            </p>
+
+            <p class="raw-text">
+                We can go further and explore the <strong>relationship of each category</strong> of every variable with the <strong>target variable</strong> we aim to predict, which is <strong>whether the passenger survived or not</strong>.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Dinamic-tables-2.png" alt="Dinamic-table-2" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                As seen in the previous tables, <strong>women survived more than men</strong> overall. Passengers with <strong>first-class tickets</strong> had a much higher survival probability of <strong>0.63</strong> compared to other classes. Additionally, those who <strong>embarked at port "C"</strong> survived nearly <strong>20% more</strong> than passengers from other ports. Furthermore, analyzing <strong>survival rates by age group</strong> shows that most survivors were between <strong>31 and 40 years old</strong>.
+            </p>
+
+
+            <h3 class="subtitle-raw">
+            Data Processing
+            </h3>
+
+            <p class="raw-text">
+                Once the data has been analyzed, we need to handle rows with <strong>missing values</strong>. In this case, to <strong>minimize the introduction of artificial data</strong> into the model, these rows will be <strong>removed</strong>.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Tabla-limpios.png" alt="Datos-limpios" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Only <strong>6 columns</strong> were considered, resulting in a total of <strong>713 rows</strong>.
+            </p>
+
+            <p class="raw-text">
+                The <strong>numerical columns</strong> (Age and Fare) were scaled to values between <strong>0 and 1</strong> to help the algorithm <strong>converge more easily</strong> and prevent it from giving <strong>priority to features with larger scales</strong>. The results of applying this scaling are shown in the following figure.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Normalization.png" alt="Datos-escalados" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Finally, for <strong>categorical data</strong> such as Embarked, Sex, and Pclass, it is recommended to apply <strong>one-hot encoding</strong>. In this process, each category of a variable is transformed into a <strong>new binary feature</strong> that indicates whether a record belongs to that class or not. The following figure shows the transformation of these variables.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Final-processing.png" alt="Datos-escalados" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+            Now that the data is ready, we can begin training the <strong>Logistic Regression model</strong>. The model will include the following parameters: <strong>Normalized Age (B1)</strong>, <strong>Normalized Fare (B2)</strong>, <strong>Male (B3)</strong>, <strong>Female (B4)</strong>, <strong>S (B5)</strong>, <strong>C (B6)</strong>, <strong>Q (B7)</strong>, <strong>Class 1 (B8)</strong>, <strong>Class 2 (B9)</strong>, and <strong>Class 3 (B10)</strong>.
+            </p>
+
+            <p>
+            The logistic regression model is defined as:
+            </p>
+
+            <p style="text-align:center;">
+                h<sub>θ</sub>(x) = 1 / (1 + e<sup>−(B0 + B1·Age + B2·Fare + B3·Male + B4·Female + B5·S + B6·C + B7·Q + B8·Class1 + B9·Class2 + B10·Class3)</sup>)
+            </p>
+
+            <h3 class="subtitle-raw">
+            Model Training
+            </h3>
+
+            <p class="raw-text">
+                We will start by initializing each <strong>beta (parameter)</strong> with a value of <strong>1</strong>.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Betas-as-1.png" alt="betas-1" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Then, we write the corresponding equation for the <strong>log-loss</strong> as follows:
+            </p>
+
+            <img src="projects_images\Logistic_regression\log-loss.png" alt="betas-1" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+            For <strong>B₀</strong>, we write the following equation:
+            </p>
+
+            <img src="projects_images\Logistic_regression\beta-0.png" alt="beta0" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                For the following <strong>betas</strong>, the calculation is similar to <strong>β₀</strong>. However, we need to multiply by the corresponding <strong>feature</strong> associated with each beta:
+            </p>
+
+            <img src="projects_images\Logistic_regression\all-betas.png" alt="todas-las-betas" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Afterwards, we update each parameter by subtracting the product of the <strong>learning rate</strong> and the corresponding <strong>gradient descent result</strong> from its previous value.
+            </p>
+
+            <img src="projects_images\Logistic_regression\beta-update.png" alt="beta-update" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Afterwards, we simply <strong>drag the remaining cells</strong> down to the current row.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Arrastrada.png" alt="arrastrada" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Now, we simply <strong>drag the second row</strong> down to <strong>1000 or 100000 iterations</strong>, a value at which the model converges, and observe that the <strong>log-loss no longer changes</strong>.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Final-iteration.png" alt="Final-iteration" style="width:auto; height:250px;">
+
+
+            <p class="raw-text">
+            As we can see, the resulting <strong>logistic regression equation</strong> is:
+            </p>
+
+            <p style="text-align:center;">
+            h<sub>θ</sub>(x) = 1 / (1 + e<sup>−(
+            -0.3255 
+            − 2.8554·Age 
+            + 0.1077·Fare 
+            − 0.9196·Male 
+            + 1.5941·Female 
+            + 0.5017·S 
+            + 0.9919·C 
+            + 0.1810·Q 
+            + 1.7325·Class1 
+            + 0.6019·Class2 
+            − 0.6598·Class3 )</sup>)
+            </p>
+
+
+            <h3 class="subtitle-raw">
+            Model evaluation
+            </h3>
+
+            <p class="raw-text">
+                We can go further and <strong>evaluate the predictions</strong> of the obtained model. We can create a <strong>new column</strong> where we apply the model and obtain its predictions as follows:
+            </p>
+
+            <img src="projects_images\Logistic_regression\Predictions.png" alt="Predictions" style="width:auto; height:250px;">
+
+                        <p class="raw-text">
+                To assign a precise class and evaluate the model, if the <strong>prediction</strong> is greater than or equal to <strong>0.5</strong>, it will be considered <strong>class 1</strong>, and if it is less than 0.5, it will be considered <strong>class 0</strong>.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Class-definition.png" alt="Class-definition" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                We can compare the <strong>predicted values</strong> with the <strong>actual values</strong> by simply applying an <strong>if statement</strong> to determine whether the two results are equal.
+            </p>
+
+            <img src="projects_images\Logistic_regression\igualdad.png" alt="Class-definition" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Finally, we can calculate the <strong>accuracy</strong> of the model by dividing the <strong>total correct predictions</strong> by the <strong>total number of data points</strong>. The resulting accuracy was <strong>0.8</strong>, which is excellent for a model that did not consider the other features and has no regularization.
+            </p>
+
+            <img src="projects_images\Logistic_regression\Accuracy.png" alt="Class-definition" style="width:auto; height:250px;">
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+            
+
+            <ul class = "Conclusions_list">
+            <li>Machine learning models, especially <strong>logistic regression</strong>, can be trained in Excel without programming or VBA.</li>
+            <li>The <strong>Titanic dataset</strong> was used to demonstrate binary classification with features like Age, Fare, Sex, Pclass, and Embarked.</li>
+            <li>Exploratory Data Analysis showed key insights: most passengers were male, women had higher survival rates, first-class tickets and port "C" increased survival probability, and most survivors were aged 31–40.</li>
+            <li>Missing data rows were removed to avoid introducing artificial values, leaving 713 rows and 6 relevant columns.</li>
+            <li>Numerical features (Age and Fare) were <strong>scaled between 0 and 1</strong> to improve convergence and avoid bias toward larger-scale features.</li>
+            <li>Categorical features (Sex, Embarked, Pclass) were transformed using <strong>one-hot encoding</strong> to create binary indicators for each category.</li>
+            <li>The logistic regression model was trained using <strong>gradient descent</strong> and initialized with all betas set to 1, iterating until the log-loss converged.</li>
+            <li>The final model produced a logistic regression equation combining all feature betas, which could classify passengers as survived (1) or not survived (0) based on predicted probabilities.</li>
+            <li>Model predictions were compared with actual values, and an <strong>accuracy of 0.8</strong> was achieved, demonstrating good performance despite the model using a limited number of features and no regularization.</li>
+            <li>This approach illustrates that <strong>machine learning concepts and training</strong> can be fully explored and understood using Excel alone.</li>
+            </ul>
+
+            
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

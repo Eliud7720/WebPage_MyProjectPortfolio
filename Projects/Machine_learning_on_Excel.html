@@ -48,7 +48,7 @@
         <!-- Project section-->
          <section class="Project">
 
-            <h1 class="main-title"> Exploratory Data Analysis and Preprocessing of EGFR, MAPK1, SRC, and STAT3 Inhibitors Reported in the ChEMBL Compound Library</h1>
+            <h1 class="main-title"> Explaining Linear Regression Machine Learning Models Using Excel Only, Without VBA</h1>
             <hr class="main-hr">
 
             <div class="about-and-objective">
@@ -59,7 +59,7 @@
                     </h2>
                     <hr class="tinyhr">
                     <p class="about-description">
-                        Dementia, primarily <strong>Alzheimer’s Disease (AD)</strong>, is one of the leading causes of <strong>disability and mortality</strong> in older adults, affecting <strong>1.3 million people in Mexico</strong>. <strong>Type 2 diabetes (T2D)</strong> increases the risk of developing AD by 1.5 to 2 times and is associated with <strong>cerebral insulin resistance, inflammation, and oxidative stress</strong>. <strong>Antidiabetic drugs</strong> have shown cognitive improvements in patients with AD or Mild Cognitive Impairment. To date, no <strong>specific inhibitors</strong> targeting proteins involved in the AD-T2D interaction have been identified. Advances in <strong>artificial intelligence and machine learning</strong> provide tools to discover new inhibitors with high precision and efficiency, optimizing drug development. Therefore, employing machine learning models could enable the identification of <strong>potential inhibitors for the AD-T2D association</strong> with high accuracy, improve their selection, and reduce the costs associated with drug development. A study identified a total of <strong>10 proteins linking AD with T2D</strong>, with <strong>EGFR, MAPK1, SRC, and STAT3</strong> being the most prominent. Given the large number of assays reporting <strong>IC50 values</strong>, machine learning models can be trained to predict IC50 activity for each protein.
+                        Machine learning has revolutionized the way we do things in the world and has solved problems that, in the past, we did not even know could be solved. Machine learning models are mainly divided into two groups: supervised and unsupervised. In the first case, algorithms of this type are used to predict a feature of an object based on its other features. While it is possible to develop machine learning models without knowing much about the mathematical equations involved, I often faced the problem that when teaching the algorithms, they were not fully understood because the formulas were not used as closely as possible without programming languages. However, since the simplest linear models (linear and logistic regression) do not involve complex optimizations, it is possible to carry out their training in Excel.
                     </p>
                 </div>
 
@@ -69,11 +69,13 @@
                     </h2>
                     <hr class="tinyhr">
                     <p class="about-description">
-                        <p>Analyze and preprocess data on <strong>EGFR, MAPK1, SRC, and STAT3 inhibitors</strong> reported in the <strong>ChEMBL compound library</strong> to obtain <strong>clean datasets</strong> and identify <strong>compounds shared among all four proteins</strong>.</p>
+                        Develop and train Linear machine learning models in Excel with the aim of demonstrating how the training of machine learning models is carried out.
                     </p>
                 </div>
 
             </div>
+
+
 
             <h2 class="Development-title"> Development </h1>
             <hr class="main-hr">
@@ -84,204 +86,115 @@
             </h3>
 
             <p class="raw-text">
-            Experimental data on inhibition was collected from the ChEMBL web chemolibrary for the proteins <strong>EGFR</strong>, <strong>MAPK1</strong>, <strong>SRC</strong>, and <strong>STAT3</strong>, which have IDs <strong>CHEMBL203</strong>, <strong>CHEMBL4040</strong>, <strong>CHEMBL267</strong>, and <strong>CHEMBL4026</strong> in CSV format. Each file was loaded as a <strong>pandas dataframe</strong> in Python. The compound data for each file consisted of <strong>47 columns</strong> describing each assay of a specific compound against the protein, with columns including information such as the <strong>compound name</strong>, <strong>SMILES</strong> (a way to represent chemical compounds in cheminformatics), and <strong>IC50 assay results</strong>. Only the following columns were selected: <strong>"Molecule ChEMBL ID"</strong>, <strong>"Molecule Name"</strong>, <strong>"Smiles"</strong>, <strong>"Standard Type"</strong>, <strong>"Standard Relation"</strong>, <strong>"Standard Value"</strong>, <strong>"Standard Units"</strong>, <strong>"Assay Type"</strong>, <strong>"Molecular Weight"</strong>, <strong>"BAO Label"</strong>, <strong>"Action Type"</strong>.
+            For the <strong>linear regression model</strong>, artificial data was created so that the data followed the function <strong>0.2X + 5</strong> with some noise.
             </p>
 
-            <p class="raw-text">The following table summarizes the number of compounds per protein.</p>
-
-            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
-            <thead>
-                <tr>
-                <th>Protein</th>
-                <th>Original Number of Compounds</th>
-                <th>Columns</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>EGFR</td>
-                <td>17286</td>
-                <td>11</td>
-                </tr>
-                <tr>
-                <td>MAPK1</td>
-                <td>4722</td>
-                <td>11</td>
-                </tr>
-                <tr>
-                <td>SRC</td>
-                <td>5202</td>
-                <td>11</td>
-                </tr>
-                <tr>
-                <td>STAT3</td>
-                <td>1224</td>
-                <td>11</td>
-                </tr>
-            </tbody>
-            </table>
-
-
             <h3 class="subtitle-raw">
-                Data Preprocessing
+                Linear Regression
             </h3>
 
-            <p class="raw-text">For the data of each protein, the amount of missing data in each column was analyzed using the pandas <code>.isna().sum()</code> method. Results like the following were obtained:</p>
+            <p class="raw-text">
+                Linear regression models are a type of model that fits a straight line, <strong>Y = mx + b</strong>, where <strong>m</strong> represents the slope and <strong>b</strong> the Y-axis intercept. The goal of training a linear regression model is to determine the parameters that define a straight line, namely <strong>m</strong> and <strong>b</strong>. These coefficients are often represented as <strong>θ₁</strong> and <strong>θ₀</strong> or <strong>β₁</strong> and <strong>β₀</strong>, respectively.
+            </p>
 
-            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
-            <thead>
-                <tr>
-                <th>Column</th>
-                <th>Missing Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>Molecule ChEMBL ID</td>
-                <td>0</td>
-                </tr>
-                <tr>
-                <td>Molecule Name</td>
-                <td>14910</td>
-                </tr>
-                <tr>
-                <td>Smiles</td>
-                <td>32</td>
-                </tr>
-                <tr>
-                <td>Standard Type</td>
-                <td>0</td>
-                </tr>
-                <tr>
-                <td>Standard Relation</td>
-                <td>1379</td>
-                </tr>
-                <tr>
-                <td>Standard Value</td>
-                <td>1379</td>
-                </tr>
-                <tr>
-                <td>Standard Units</td>
-                <td>1237</td>
-                </tr>
-                <tr>
-                <td>Assay Type</td>
-                <td>0</td>
-                </tr>
-                <tr>
-                <td>Molecular Weight</td>
-                <td>11</td>
-                </tr>
-                <tr>
-                <td>BAO Label</td>
-                <td>0</td>
-                </tr>
-            </tbody>
-            </table>
+            <p class="raw-text">
+                An analytical solution to this problem is to use the <strong>least squares equations</strong>. However, for many parameters and large datasets, this approach can take a long time to find a solution compared to the method commonly used in machine learning. The method employed in the vast majority of models to estimate parameters is <strong>gradient descent</strong>. Gradient descent is an iterative algorithm that estimates parameters step by step by minimizing a <strong>cost function</strong>. In other words, it is a way to <strong>gradually fit the model</strong> until it predicts the data as accurately as possible.
+                Regarding the previously mentioned <strong>cost function</strong>, it serves as a way to evaluate the model. In regression models, a simple way to do this is using the <strong>Mean Squared Error (MSE)</strong> function, where each actual value is subtracted from its corresponding prediction made by the linear regression equation, <strong>Y - Y<sub>i</sub></strong>.
+            If <strong>Y<sub>i</sub></strong> is the prediction for an element <strong>i</strong>, then the error is calculated as <strong>Y - (θ₀ + θ₁x)</strong>.
+            </p>
+
+            <p class="raw-text">
+                Therefore, the <strong>Mean Squared Error (MSE)</strong> is the sum of all <strong>Y - (θ₀ + θ₁x)</strong> squared.
+            </p>
+
+            <p class="raw-text">
+                Since the goal is to obtain <strong>θ₀</strong> and <strong>θ₁</strong>, once we define the function we want to optimize (minimize), we must also define another function to update <strong>θ₀</strong> and <strong>θ₁</strong> at each step, guiding us toward the point where the <strong>MSE</strong> reaches its minimum. These equations involve <strong>gradient descent</strong>, which is simply the derivative of the loss function with respect to each <strong>θ</strong>.
+            </p>
+
+            <p class="raw-text">
+            Once derived with respect to <strong>θ₀</strong> and <strong>θ₁</strong>, the resulting equations are:
+            </p>
+
+            <p class="raw-text">
+            θ₀(new) = θ₀(old) - α (1/m) Σ (Y - Y<sub>i</sub>)  
+            <br>
+            θ₁(new) = θ₁(old) - α (1/m) Σ (Y - Y<sub>i</sub>) x
+            </p>
+
+            <p class="raw-text">
+                To apply this in Excel, we start by assuming the initial parameters <strong>θ₀ = 1</strong> and <strong>θ₁ = 1</strong>. With each iteration, these values are updated until the parameters that minimize the loss function (<strong>MSE</strong>) are determined.
+            </p>
+
+            <p class="raw-text">
+            The data representing the function <strong>0.2x + 5</strong> are shown in the following table, covering values from <strong>x = 0</strong> to <strong>x = 3.8</strong>.
+            </p>
+
+            <img src="projects_images\Machine-learning-on-excel\Data_linear_regression.png" alt="Data" style="width:auto; height:300px;">
+
+            <p class="raw-text">
+            First, the first iteration begins by defining the column names and setting the parameters to <strong>1</strong>.
+            </p>
+
+            <img src="projects_images\Machine-learning-on-excel\Start-Linear.png" alt="Starting_params" style="width:400px; height:auto;">
+
+            <p class="raw-text">
+                Next, we define the loss function (<strong>MSE</strong>) using the following Excel formula:
+            </p>
+
+            <img src="projects_images/Machine-learning-on-excel/MSE-linear.png" alt="Starting_params" style="width:400px; height:auto;">
+
+            <p class="raw-text">
+                Then, the respective parameter updates are applied using the following formulas:
+            </p>
+
+            <img src="projects_images\Machine-learning-on-excel\Theta-0.png" alt="Theta0-formula" style="width:auto; height:350px;">
+
+            <img src="projects_images\Machine-learning-on-excel\Theta-1.png" alt="Theta1-formula" style="width:auto; height:350px;">
+
+            <p class="raw-text">
+                Next, we will apply the equation to update the parameters.
+            </p>
+
             
-            <p class="raw-text">In the previous table, it can be seen that there are missing values in the columns <strong>Molecule Name</strong>, <strong>Smiles</strong>, <strong>Standard Relation</strong>, <strong>Standard Value</strong>, <strong>Standard Units</strong>, and <strong>Molecular Weight</strong>. Rows with missing values in <strong>Standard Relation</strong>, <strong>Standard Value</strong>, <strong>Standard Units</strong>, or <strong>SMILES</strong> were removed using the <code>dropna()</code> method. However, rows with missing values in <strong>Molecule Name</strong> were retained, since in many cases molecules do not yet have an assigned name, and rows with missing values in <strong>Molecular Weight</strong> were kept because if the molecule's <strong>SMILES</strong> is present, it can be used to calculate the molecular weight.</p>
+            <img src="projects_images\Machine-learning-on-excel\theta0-update.png" alt="Theta1-formula-update" style="width:auto; height:350px;">
 
-            <p class="raw-text">The data in the <strong>Standard Units</strong> column was analyzed to check whether the assay data had consistent units and, if not, to perform the necessary conversions when possible. This analysis was carried out using the <code>value_counts()</code> method. The following table shows an example of the units determined with <code>value_counts()</code>.</p>
+            <img src="projects_images\Machine-learning-on-excel\theta1-update.png" alt="Theta2-formula-update" style="width:auto; height:350px;">
 
+            <p class="raw-text">
+                Afterward, the MSE and update cells are dragged down to the current row.
+            </p>
 
-            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
-            <thead>
-                <tr>
-                <th>Standard Units</th>
-                <th>Count</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>nM</td>
-                <td>15805</td>
-                </tr>
-                <tr>
-                <td>ug.mL-1</td>
-                <td>86</td>
-                </tr>
-                <tr>
-                <td>/uM</td>
-                <td>6</td>
-                </tr>
-            </tbody>
-            </table>
+            <img src="projects_images\Machine-learning-on-excel\arrastrado.png" alt="Arrastrado" style="width:auto; height:350px;">
 
+            <p class="raw-text">
+                Now we have it. We can take row 2 and drag it, for example, up to row 1000 to 10000, and the displayed parameters will correspond to the minimization.
+            </p>
 
-            <p class="raw-text">As shown in the previous table, the majority unit type in the assays is <strong>nM</strong>; however, there are 86 assays with units <strong>ug.mL-1</strong> and 6 with units <strong>/uM</strong>. The necessary unit conversions were carried out using masks and the corresponding equations with <strong>pandas</strong>.</p>
+            <img src="projects_images\Machine-learning-on-excel\almost-4000.png" alt="Final-regresion" style="width:auto; height:350px;">
 
-            <p class="raw-text">Subsequently, duplicates in the <strong>Molecule ChEMBL ID</strong> and <strong>Molecule Name</strong> columns were removed in order to retain only a single random assay per molecule.</p>
+            <p class="raw-text">
+                As seen in the previous image, the parameters obtained after iterating were <strong>0.2</strong> and <strong>0.499</strong>, exactly the same as the parameters of the equation (<strong>0.2x + 0.5</strong>). Thus, with these simple steps, the linear regression equation was determined using gradient descent.
+            </p>
 
-            <p class="raw-text">Additionally, only assays with exact values or results, recorded in the <strong>"Standard Relation"</strong> column as <strong>"="</strong>, were retained, and assays with censored results, i.e., values marked as <strong>">"</strong> or <strong>"<"</strong>, were discarded because working with censored data is not recommended in machine learning models.</p>
+            <p class="raw-text">
+                If we plot the data (in a scatter plot with the prediction line), it would look as follows:
+            </p>
 
-            <p class="raw-text">Regarding the <strong>Assay Type</strong> column, only rows corresponding to protein binding assays, denoted as <strong>"B"</strong>, were retained. In the <strong>BAO Label</strong> column, only rows with assays labeled as <strong>"single protein format"</strong> were kept.</p>
+            <img src="projects_images\Machine-learning-on-excel\plot-linear.png" alt="Final-regresion" style="width:auto; height:350px;">
 
-            <p class="raw-text">The following table shows the number of compounds before and after data preprocessing:</p>
-
-            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
-            <thead>
-                <tr>
-                <th>Protein</th>
-                <th>Original Number of Compounds</th>
-                <th>Number of Compounds After Data Processing</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <td>EGFR</td>
-                <td>17286</td>
-                <td>3974</td>
-                </tr>
-                <tr>
-                <td>MAPK1</td>
-                <td>4722</td>
-                <td>2764</td>
-                </tr>
-                <tr>
-                <td>SRC</td>
-                <td>5202</td>
-                <td>2564</td>
-                </tr>
-                <tr>
-                <td>STAT3</td>
-                <td>1224</td>
-                <td>323</td>
-                </tr>
-            </tbody>
-            </table>
-
-            <p class="raw-text">A new column was created based on the <strong>IC50</strong> information, where values with an IC50 less than or equal to 1000 nM were considered <strong>"Active"</strong> and values greater than 1000 nM were considered <strong>"Inactive"</strong>. The following figure shows the distribution of active and inactive compounds for each protein:</p>
-            
-            <img src="projects_images\EDA_thesis\Distribucion_por_proteina.png" alt="Distribucion" class="raw-image">
-
-
-            <p>If each class is reported as a percentage of the total, it is shown as follows, where it can be observed that most classes have an imbalance of less than 40%:</p>
-
-            <img src="projects_images\EDA_thesis\Umbalance.png" alt="Umbalance" class="raw-image">
-
-            <p>The compounds shared among the cleaned data of the proteins were analyzed, resulting in the following graph created in <strong>Python</strong>:</p>
-
-            <img src="projects_images\EDA_thesis\Compartidos.png" alt="Shared" class="raw-image">
-
-            <p>As seen in the previous graph, the first four columns represent unique compounds for each protein, while the rest represent shared compounds. There were <strong>12 compounds shared between MAPK1 and EGFR</strong>, <strong>392 between SRC and EGFR</strong>, <strong>13 between SRC and MAPK1</strong>, and finally <strong>4 shared among SRC, MAPK1, and EGFR</strong>. These findings suggest that it is possible to identify new compounds through machine learning models that could potentially inhibit up to four proteins.</p>
 
             <h2 class="Development-title"> Conclusions </h1>
             <hr class="main-hr">
 
             <ul class = "Conclusions_list">
-            <li>The preprocessing of ChEMBL data for EGFR, MAPK1, SRC, and STAT3 reduced the number of compounds significantly, ensuring cleaner datasets for machine learning models.</li>
-            <li>Missing data was carefully handled: rows with missing values in key experimental results were removed, while columns like <strong>Molecule Name</strong> and <strong>Molecular Weight</strong> were preserved when possible.</li>
-            <li>Unit inconsistencies in <strong>Standard Units</strong> were standardized, ensuring assay results are comparable across proteins.</li>
-            <li>Only reliable assays were retained by filtering for exact values (“=”) and excluding censored data (">", "<").</li>
-            <li>Duplicates were removed to avoid bias, and only protein binding assays and single protein formats were conserved.</li>
-            <li>A binary classification column (<strong>Active vs. Inactive</strong>) was created using an IC50 threshold of 1000 nM, enabling supervised learning approaches.</li>
-            <li>Most datasets showed class imbalances below 40%, which is manageable for machine learning algorithms with proper handling.</li>
-            <li>Shared compound analysis revealed overlaps among proteins (e.g., 392 compounds shared between SRC and EGFR), highlighting potential multitarget inhibitors.</li>
-            <li>These findings demonstrate the feasibility of using machine learning to predict IC50 values and discover new compounds that could inhibit multiple proteins related to Alzheimer’s Disease and Type 2 Diabetes.</li>
+            <li>Machine learning can solve problems that were previously considered unsolvable, and linear models can be understood and implemented even without programming.</li>
+            <li>Linear regression fits a straight line (Y = mx + b) to data, and its parameters (θ₀ and θ₁) can be estimated using gradient descent.</li>
+            <li>Gradient descent iteratively minimizes the Mean Squared Error (MSE) to optimize the model parameters.</li>
+            <li>Excel can be used to train linear regression models by updating parameters step by step and observing the reduction in MSE.</li>
+            <li>Using artificial data following the function 0.2x + 5, the gradient descent approach in Excel successfully recovered the original parameters (0.2 and 0.5) after enough iterations.</li>
+            <li>A scatter plot with the prediction line visually confirms the accuracy of the trained linear regression model.</li>
             </ul>
             
-
-
          </section>
 
  
