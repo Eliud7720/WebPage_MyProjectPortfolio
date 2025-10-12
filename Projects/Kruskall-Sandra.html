@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Comparative analysis of the oral microbiota in patients with different degrees of autism and healthy controls</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Autism is a lifelong <strong>neurodevelopmental condition</strong> that primarily affects how individuals perceive the world, process information, communicate, and interact with others. 
+                        According to the DSM-5, autism is classified into <strong>three levels</strong> based on the amount of support a person requires. 
+                        Numerous studies have highlighted significant differences in the <strong>gut microbiota</strong> between individuals with autism and neurotypical controls. 
+                        However, <strong>the oral microbiota has been far less explored</strong> in this context. 
+                        To address this gap, a study was conducted analyzing the oral microbiota of <strong>60 participants</strong>, including patients across different levels of autism and neurotypical individuals. 
+                        The dataset consisted of the bacterial species counts for each participant, which now require <strong>statistical analysis</strong> to derive meaningful conclusions.
+                    </p>
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        The objective of this analysis is to evaluate the provided dataset, which contains <strong>bacterial species counts</strong> for each participant, 
+                        in order to identify species that are distributed differently across <strong>autism levels 1, 2, and 3</strong>, as well as <strong>neurotypical controls</strong>. 
+                        This study focuses exclusively on the <strong>species-level breakdown</strong>, without presenting aggregated or higher-level analyses, 
+                        and no additional analyses will be included.
+                    </p>
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+                The dataset used for this <strong>statistical and data analysis</strong> was provided by the requester in the format shown in the following figure. 
+                In this structure, each <strong>column represents a sample</strong>, while each <strong>cell corresponds to the count of a bacterial species</strong> for a given patient.
+            </p>
+
+            <img src="projects_images\Kruskall-sandra\Datos-crudos.png" alt="Class-definition" style="width:auto; height:250px;">
+
+            <h3 class="subtitle-raw">
+                Exploratory Data Analysis
+            </h3>
+
+            <p class="raw-text">
+                The <strong>data analysis and statistical procedures</strong> were performed using <strong>R</strong>. 
+                First, the total number of <strong>unique species</strong> in the dataset was counted, resulting in <strong>1,859 species</strong>. 
+                Next, species that were absent across all patients were filtered out. 
+                This was done by summing across rows to determine the total abundance of each species in all samples. 
+                If the total sum for a species was zero, it would be discarded; however, in this case, every species had at least one occurrence. 
+                This step is necessary because, given how the dataset was generated and summarized, it may include species from external sources not actually present in the study samples.
+            </p>
+
+
+            <p class="raw-text">
+                The <strong>most prevalent species</strong> were identified, meaning those that were present in <strong>all 60 participants</strong>. 
+                The following figure presents a table displaying only 15 of these bacterial species (in total were 30).
+            </p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Species</th>
+                <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Haemophilus_parainfluenzae</td><td>60</td></tr>
+                <tr><td>Porphyromonas_pasteri</td><td>60</td></tr>
+                <tr><td>Prevotella_melaninogenica</td><td>60</td></tr>
+                <tr><td>Leptotrichia_buccalis</td><td>60</td></tr>
+                <tr><td>Prevotella_bryantii</td><td>60</td></tr>
+                <tr><td>Capnocytophaga_leadbetteri</td><td>60</td></tr>
+                <tr><td>Capnocytophaga_sputigena</td><td>60</td></tr>
+                <tr><td>Alloprevotella_rava</td><td>60</td></tr>
+                <tr><td>TM7_phylum</td><td>60</td></tr>
+                <tr><td>Fusobacterium_nucleatum</td><td>60</td></tr>
+                <tr><td>Prevotella_shahii</td><td>60</td></tr>
+                <tr><td>uncultured_bacterium</td><td>60</td></tr>
+                <tr><td>Capnocytophaga_granulosa</td><td>60</td></tr>
+                <tr><td>Leptotrichia_hongkongensis</td><td>60</td></tr>
+                <tr><td>Streptococcus_sanguinis</td><td>60</td></tr>
+            </tbody>
+            </table>
+
+            Subsequently, using <strong>R</strong>, the table was <strong>transposed</strong> so that the columns represented the <strong>bacterial species</strong>. 
+            A <strong>LEFT JOIN</strong> was then performed with another table to associate each sample with its corresponding group. 
+            Next, the data were <strong>grouped by category</strong> (levels 1, 2, 3, and controls), and the <strong>median abundance of each species</strong> was calculated for each group. 
+            Finally, the table was <strong>transposed again</strong> to display the data vertically, with <strong>columns representing the groups</strong> and <strong>rows corresponding to the species</strong>.
+
+            <p class="raw-text">
+                A <strong>fragment of the resulting table</strong> is shown below.
+            </p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Species</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>C</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Haemophilus_parainfluenzae</td><td>539</td><td>1206</td><td>280</td><td>1889</td></tr>
+                <tr><td>Prevotella_melaninogenica</td><td>300</td><td>358</td><td>149</td><td>1009</td></tr>
+                <tr><td>Leptotrichia_buccalis</td><td>294</td><td>524</td><td>333</td><td>247</td></tr>
+                <tr><td>Capnocytophaga_leadbetteri</td><td>166</td><td>382</td><td>287</td><td>151</td></tr>
+                <tr><td>Aggregatibacter_aphrophilus</td><td>146</td><td>345</td><td>159</td><td>224</td></tr>
+                <tr><td>Prevotella_nanceiensis</td><td>91</td><td>210</td><td>87</td><td>351</td></tr>
+                <tr><td>Haemophilus_aegyptius</td><td>93</td><td>354</td><td>43</td><td>197</td></tr>
+                <tr><td>Gemella_haemolysans</td><td>133</td><td>235</td><td>54</td><td>208</td></tr>
+                <tr><td>Prevotella_bivia</td><td>49</td><td>122</td><td>29</td><td>195</td></tr>
+                <tr><td>Neisseria_cinerea</td><td>92</td><td>151</td><td>130</td><td>25</td></tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                Although these data now allow us to compare <strong>group medians</strong>, this alone is not sufficient to determine whether there are <strong>statistically significant differences</strong> between groups. 
+                To assess this, a <strong>statistical test</strong> such as <strong>ANOVA</strong> is required. 
+                However, before applying ANOVA, it is necessary to determine the <strong>distribution type</strong> of each variable. 
+                To this end, the <strong>Shapiro-Wilk test</strong> was performed in <strong>R</strong> to assess whether the data for each species follow a <strong>normal distribution</strong>. 
+                The Shapiro-Wilk test uses the <strong>null hypothesis</strong> that the data come from a normal distribution. 
+                If the resulting <strong>p-value</strong> is less than or equal to 0.05, there is a low probability that the data follow a normal distribution, and the null hypothesis is rejected, indicating a <strong>non-parametric distribution</strong>. 
+                Conversely, if the p-value is greater than 0.05, there is a reasonable probability that the data follow a <strong>normal distribution</strong>.
+            </p>
+
+            <p class="raw-text">
+                The <strong>Shapiro-Wilk test</strong> was calculated for the data of all species across all samples. 
+                The overall results are presented in the <strong>following table</strong>.
+            </p>
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Distribution Type</th>
+                <th>Count</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Normal distribution</td><td>1859</td></tr>
+                <tr><td>Non-normal distribution</td><td>0</td></tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                Since all species followed a <strong>non-normal distribution</strong> and there are <strong>four independent groups</strong>, the most appropriate test to determine <strong>differences between groups</strong> in this case is the <strong>Kruskal-Wallis test</strong>.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Kruskall Wallis test
+            </h3>
+
+            <p class="raw-text">
+            The <strong>Kruskal-Wallis test</strong> was conducted to determine whether at least one of the groups exhibited a <strong>different distribution</strong> for each bacterial species. 
+            This analysis was performed using <strong>R</strong>, and the results were saved as a <strong>CSV file</strong>.
+            </p>
+
+            <p class="raw-text">
+                A total of <strong>125 species</strong> were identified with a <strong>p-value less than 0.05</strong>, indicating a high probability that at least one of the groups exhibits a <strong>unequal distribution</strong> for each species. 
+                Additionally, a metric called <strong>difference</strong> was calculated for each species, measuring the disparity between the group with the <strong>highest mean abundance</strong> and the group with the <strong>lowest mean abundance</strong> to assess the practical significance of these differences. 
+                This step was necessary because, among the 125 species, many showed <strong>statistically significant but minor differences</strong> (e.g., median differences of 5 or 10), which, although statistically significant, are not practically relevant in this context.
+            </p>
+
+            <p class="raw-text">
+                The following table presents a <strong>fragment of 10 species</strong>, showing their respective <strong>group medians</strong>, <strong>statistical significance</strong>, and the <strong>difference between the largest and smallest medians</strong>. 
+                The species are <strong>ordered according to the difference</strong>.
+            </p>
+
+            <table class="tablas" border="1" cellspacing="0" cellpadding="5">
+            <thead>
+                <tr>
+                <th>Variable</th>
+                <th>1</th>
+                <th>2</th>
+                <th>3</th>
+                <th>C</th>
+                <th>p-value</th>
+                <th>Difference</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Haemophilus_parainfluenzae</td><td>539</td><td>1206</td><td>280</td><td>1889</td><td>0.007197669</td><td>1609</td></tr>
+                <tr><td>Prevotella_melaninogenica</td><td>300</td><td>358</td><td>149</td><td>1009</td><td>0.016076596</td><td>860</td></tr>
+                <tr><td>Haemophilus_aegyptius</td><td>93</td><td>354</td><td>43</td><td>197</td><td>0.019336737</td><td>311</td></tr>
+                <tr><td>Leptotrichia_buccalis</td><td>294</td><td>524</td><td>333</td><td>247</td><td>0.043196909</td><td>277</td></tr>
+                <tr><td>Prevotella_nanceiensis</td><td>91</td><td>210</td><td>87</td><td>351</td><td>0.021109782</td><td>264</td></tr>
+                <tr><td>Capnocytophaga_leadbetteri</td><td>166</td><td>382</td><td>287</td><td>151</td><td>0.036800206</td><td>231</td></tr>
+                <tr><td>Aggregatibacter_aphrophilus</td><td>146</td><td>345</td><td>159</td><td>224</td><td>0.006437801</td><td>199</td></tr>
+                <tr><td>Gemella_haemolysans</td><td>133</td><td>235</td><td>54</td><td>208</td><td>0.027083619</td><td>181</td></tr>
+                <tr><td>Prevotella_bivia</td><td>49</td><td>122</td><td>29</td><td>195</td><td>0.042343473</td><td>166</td></tr>
+                <tr><td>Porphyromonas_catoniae</td><td>109</td><td>247</td><td>200</td><td>97</td><td>0.004598448</td><td>150</td></tr>
+            </tbody>
+            </table>
+
+            <h3 class="subtitle-raw">
+                Post-hoc analysis
+            </h3>
+
+            <p class="raw-text">
+                Only species with <strong>practically relevant differences</strong> were retained. 
+                Subsequently, a <strong>Dunn post-hoc test</strong> was conducted to assess <strong>all pairwise group comparisons</strong> and determine if there were significant differences between groups. 
+                This analysis was performed using <strong>R</strong>, and the results were saved as a <strong>CSV file</strong>. 
+                The data were then analyzed, and only those cases where at least one group was truly different from the others were retained for further consideration.
+            </p>
+
+            <p class="raw-text">
+                At the conclusion of the <strong>post-hoc analysis</strong>, only <strong>8 species</strong> were identified as having <strong>considerable significant differences</strong> in at least one group. 
+                These species are: <strong>Abiotrophia defectiva, Corynebacterium matruchotii, Selenomonas infelix, Streptococcus sanguinis, Actinomyces odontolyticus, Haemophilus sputorum, Neisseria polysaccharea, and Streptococcus lactarius</strong>. 
+                The following <strong>boxplots</strong> display the distribution of these species individually for each group (1, 2, 3, and controls).
+            </p>
+
+            <img src="projects_images\Kruskall-sandra\boxplot_posthoc_lote_1.png" alt="Post-hoc1" style="width:auto; height:400px;">
+
+            <img src="projects_images\Kruskall-sandra\boxplot_posthoc_lote_2.png" alt="Post-hoc2" style="width:auto; height:400px;">
+
+            <p class="raw-text">
+                From the previous plots, the most notable distributions were observed for <strong>Selenomonas infelix</strong>, showing a clear <strong>unequal distribution</strong> between <strong>neurotypical controls (C)</strong> and the patient groups (1, 2, and 3), and for <strong>Actinomyces odontolyticus</strong>, where the patients (1, 2, and 3) exhibited a <strong>considerably lower abundance</strong> compared to the neurotypical group. 
+                With this information, along with additional analyses performed at the <strong>genus, phylum, and group levels</strong>, these species can be further studied to explore their potential <strong>relationship with autism</strong>.
+            </p>
+
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+                <li>The oral microbiota of 60 participants, including patients with different levels of autism and neurotypical controls, was analyzed at the <strong>species level</strong>.</li>
+                <li>A total of <strong>1,859 unique bacterial species</strong> were identified, all of which were present in at least one participant.</li>
+                <li>The <strong>Shapiro-Wilk test</strong> indicated that all species followed a <strong>non-normal distribution</strong>, justifying the use of non-parametric tests.</li>
+                <li>The <strong>Kruskal-Wallis test</strong> identified <strong>125 species</strong> with significant differences (p &lt; 0.05) between at least one group.</li>
+                <li>A <strong>difference metric</strong> was calculated to assess the practical significance of variations between groups, filtering out minor differences that were statistically significant but not meaningful.</li>
+                <li>A <strong>Dunn post-hoc test</strong> was applied to all pairwise group comparisons, retaining only species with at least one group showing a truly significant difference.</li>
+                <li>At the conclusion of the analysis, <strong>8 species</strong> showed considerable significant differences: <em>Abiotrophia defectiva, Corynebacterium matruchotii, Selenomonas infelix, Streptococcus sanguinis, Actinomyces odontolyticus, Haemophilus sputorum, Neisseria polysaccharea, and Streptococcus lactarius</em>.</li>
+                <li>The most notable distributions were observed for <strong>Selenomonas infelix</strong> (unequal distribution between neurotypical controls and patient groups) and <strong>Actinomyces odontolyticus</strong> (patients had considerably lower abundance than neurotypicals).</li>
+                <li>These results, together with additional analyses at the genus, phylum, and group levels, provide a foundation to further explore the <strong>relationship between specific oral bacteria and autism</strong>.</li>
+            </ul>
+
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

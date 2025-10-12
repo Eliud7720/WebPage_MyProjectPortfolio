@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Calculation of Molecular Descriptors and Feature selection of Curated Compounds Targeting EGFR, MAPK1, SRC, and STAT3 — Thesis Project Part 2</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        The data were cleaned in the project <b>“Exploratory Data Analysis and Preprocessing of EGFR, MAPK1, SRC, and STAT3 Inhibitors Reported in the ChEMBL Compound Library”</b>. In this process, compounds were filtered and selected according to specific characteristics for each protein. Additionally, the target variable (<b>IC50</b>) was transformed into a new variable called <b>activity</b> to enable the development of classification models. However, the data are not yet ready for model training. The next stage involves characterizing each chemical molecule, since the <b>SMILES</b> format only represents molecules as text strings and does not provide sufficient information about their properties. To address this, <b>molecular descriptors</b> are calculated, which quantitatively describe the compounds. For instance, just as a house can be characterized by the number of rooms, floors, or kitchens, a molecule can be described by its <b>molecular weight</b>, <b>physicochemical</b>, and <b>electronic properties</b>. Although calculating these descriptors is relatively straightforward, another challenge arises: <b>feature selection</b>. Some software tools can compute up to <b>1,800 descriptors</b>, but not all of them are relevant. Therefore, it is essential to select the most informative descriptors, ensuring they preserve the necessary information for achieving optimal <b>model performance</b>
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Calculate and select the best subset of molecular descriptors for the compounds associated with the four proteins (EGFR, MAPK1, SRC, and STAT3).
+                    </p>
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+                The data for which <b>molecular descriptors</b> will be calculated correspond to the inhibitors of each <b>protein</b>, but they have already been <b>preprocessed</b>.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Descriptor Calculation
+            </h3>
+
+            <p class="raw-text">
+                For the compounds of each <b>protein</b>, all <b>molecular descriptors</b> from <b>RDKit</b>, <b>Mordred</b>, and the molecular fingerprint <b>ECFP4</b> were calculated using <b>Python</b> and the corresponding libraries (<b>RDKit</b> and <b>Mordred</b>). The number of calculated descriptors is shown in the following figure.
+            </p>
+
+            <img src="projects_images\Descriptor-calculation\Descriptors-amount.png" alt="Class-definition" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                Therefore, for each <b>protein</b>, three new <b>datasets</b> were created: one containing the <b>RDKit descriptors</b> (210), another with the <b>Mordred descriptors</b> (1826), and finally one with a <b>2048-bit molecular fingerprint</b>, where each bit corresponded to a column.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Data Splitting
+            </h3>
+
+            <p class="raw-text">
+                The data were split using the <b>Scikit-learn</b> <b>train-test split</b> function in a 75-25 ratio. This was done prior to <b>feature selection</b> because three filtering methods will be used: two based on statistical methods and one based on a <b>machine learning model</b> (<b>Random Forest</b>). Reducing features using the test data would cause <b>data leakage</b> during feature selection based on the <b>Random Forest</b> model.
+            </p>
+
+            <p class="raw-text">
+                The resulting number of data points for the <b>training</b> and <b>test sets</b> were:
+            </p>
+
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Protein</th>
+                <th>Train</th>
+                <th>Test</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>EGFR</td>
+                <td>2981</td>
+                <td>993</td>
+                </tr>
+                <tr>
+                <td>MAPK1</td>
+                <td>2073</td>
+                <td>691</td>
+                </tr>
+                <tr>
+                <td>SRC</td>
+                <td>1923</td>
+                <td>641</td>
+                </tr>
+                <tr>
+                <td>STAT3</td>
+                <td>242</td>
+                <td>81</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <h3 class="subtitle-raw">
+                Data Scaling
+            </h3>
+
+            <p class="raw-text">
+                The data will be scaled using the <b>Scikit-learn MaxMin Scaler</b> to ensure all features follow the same scale, preventing the models from giving more importance to descriptors with larger scales. Only the <b>Mordred</b> and <b>RDKit descriptors</b> will be scaled for each <b>protein</b>, while the <b>fingerprints</b> will not be scaled because they are already between 0 and 1 and do not require any scaling. This process is summarized in the following figure.
+            </p>
+
+            <img src="projects_images\Descriptor-calculation\Normalization-methodology.png" alt="Class-definition" style="width:auto; height:300px;">
+
+            <h3 class="subtitle-raw">
+                Data normalization test
+            </h3>
+
+            <p class="raw-text">
+                Before applying the statistical filters to the <b>RDKit</b> and <b>Mordred molecular descriptors</b>, since the filters to be applied are <b>low variance</b> and <b>high correlation</b>, the correlation between all pairs of variables must be calculated. However, the correlation should be applied according to the distribution type of the molecular descriptors. <b>Pearson correlation</b> is applied to those following a normal distribution, while <b>Spearman correlation</b> can be used in both cases but is recommended for non-parametric distributions. It can still be applied to normal distributions with a small degree of error compared to Spearman.
+            </p>
+
+            <p class="raw-text">
+                To determine the distribution, the <b>Shapiro test</b> was performed for each descriptor to check if a feature follows a normal distribution. In this test, the null hypothesis states that the feature follows a normal distribution, so low <b>p-values</b> indicate that it does not follow a normal distribution, while high values indicate that it does. This test was automated in <b>Python</b> using <b>Scipy</b>, and descriptors with a <b>p-value</b> below 0.05 were considered non-normal, while those with a higher value were considered normal.
+            </p>
+
+            <p class="raw-text">
+                The following image shows the results by type of molecular descriptor regarding whether they follow a normal distribution or not.
+            </p>
+
+            <img src="projects_images\Descriptor-calculation\Normalization-results.png" alt="Normalization-results" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                As observed in the previous figure, the vast majority of descriptors followed a non-normal distribution, so <b>Spearman correlation</b> would be applied.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Feature Selection
+            </h3>
+
+            <p class="raw-text">
+                The first filter applied was <b>low variance</b>, where molecular descriptors with a variance of 0 were removed. This was done using the <b>VarianceThreshold</b> function from <b>Scikit-learn</b> with a threshold of 0.
+            </p>
+
+            <p class="raw-text">
+                Next, the <b>Spearman correlation</b> between all descriptors was calculated using the <b>pandas</b> <code>.corr()</code> method with the parameter <code>method="spearman"</code>. Once the correlation matrices were determined, an algorithm was designed to select only one feature at random from pairs of features with a correlation of 0.8 or higher according to Spearman.
+            </p>
+
+            <p class="raw-text">
+                Finally, the <b>Random Forest</b> machine learning model was trained, and <b>fine-tuning</b> and <b>hyperparameter optimization</b> were performed using the same hyperparameter grid that will be used later for model training. Using this model, the relative importances of each feature were calculated, and a maximum of only 80 molecular descriptors were selected from the total set of descriptors. The importances calculated by the <b>Random Forest</b> for each molecular descriptor are shown below (only the first 10 are displayed).
+            </p>
+
+            <img src="projects_images\Descriptor-calculation\Importance per molecular descriptor.png" alt="Importances-example" style="width:auto; height:250px;">
+
+            <p class="raw-text">
+                The results of the molecular descriptor filters are shown in the following table:
+            </p>
+
+            <img src="projects_images\Descriptor-calculation\Results.png" alt="Normalization-results" style="width:auto; height: 100px;">
+
+            <p class="raw-text">
+                As observed in the previous table, in general, around 10% of the descriptors were removed by the <b>low variance filter</b> for both <b>RDKit</b> and <b>Mordred</b>. Regarding the <b>high correlation filter</b>, only 20% of the descriptors were removed in RDKit, while up to 65% were removed in Mordred. This makes sense because, although Mordred has a larger number of descriptors, many of them are highly correlated. Finally, for the test sets, the data were filtered to retain only the 80 most relevant molecular descriptors.
+            </p>
+
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+            <li>The data for <b>EGFR, MAPK1, SRC, and STAT3</b> inhibitors were cleaned and preprocessed, and the target variable <b>IC50</b> was transformed into <b>activity</b> for classification.</li>
+            <li>All <b>molecular descriptors</b> from <b>RDKit</b>, <b>Mordred</b>, and the <b>ECFP4 fingerprint</b> were calculated, creating three datasets per protein.</li>
+            <li>Data were split into <b>train</b> and <b>test</b> sets (75-25) and scaled where appropriate, ensuring consistent feature scaling and preventing <b>data leakage</b>.</li>
+            <li>Feature selection was performed using <b>low variance</b>, <b>Spearman correlation</b>, and a <b>Random Forest</b> model to retain the most informative descriptors.</li>
+            <li>Finally, only the <b>80 most relevant molecular descriptors</b> per protein were selected, balancing dataset size and descriptor importance for optimal model performance.</li>
+            </ul>
+            
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>
