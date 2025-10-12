@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title"> Training of <b>machine learning</b> and <b>deep learning</b> models for the descriptor data of the proteins — Thesis Project Part 3</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Once all features for all proteins were prepared (remembering that there were three feature sets per protein: <b>RDKit molecular descriptors</b>, <b>Mordred descriptors</b>, and a <b>2048-bit molecular fingerprint</b>), <b>machine learning</b> models were trained to later make predictions on a completely new and unseen dataset. This involved selecting the <b>machine learning models</b> to be used and performing their training according to the guidelines established by <b>MLOps</b>.
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Train and evaluate all <b>machine learning</b> and <b>deep learning</b> models for each protein using their three sets of molecular descriptors.
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+                The three sets of molecular descriptors (<b>RDKit</b>, <b>Mordred</b>, and the <b>molecular fingerprint</b>) were obtained from the previous feature selection step for each protein. Therefore, each protein has three sets: one with 80 most relevant <b>RDKit descriptors</b>, another with 80 most important <b>Mordred descriptors</b>, and finally a <b>2048-bit fingerprint</b> representing the entire molecule.
+
+            <h3 class="subtitle-raw">
+                Selected models
+            </h3>
+
+            <p class="raw-text">
+                For the purposes of this research, the following <b>machine learning</b> models were trained: <b>Logistic Regression</b>, <b>Support Vector Machine (SVM)</b>, <b>Random Forest</b>, and <b>XGBoost</b> using the <b>Scikit-learn</b> library in Python. Additionally, a <b>multilayer perceptron (MLP)</b> architecture was designed and trained using the <b>TensorFlow</b> library for Python.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Models training
+            </h3>
+
+            <p class="raw-text">
+                Each model was trained using the <b>molecular descriptors</b> as features (X) and <b>activity</b> (whether it inhibits the protein or not) as the label (Y). Therefore, with 5 types of models, 3 types of descriptors, and 4 proteins, the following arrangement summarizes the total number of <b>machine learning</b> models.
+            </p>
+
+            <img src="projects_images\Model-training-tesis\Total-models.png" alt="Class-definition" style="width:auto; height:300px;">
+
+            <p class="raw-text">
+                The training of the models followed this approach: first, training was performed using <b>five-fold cross-validation</b> to determine the best hyperparameters for the models. The <b>hyperparameter grid</b> for all models used is shown in the following figure.
+            </p>
+
+            <img src="projects_images\Model-training-tesis\Hyperparameter-grid.png" alt="Class-definition" style="width:auto; height:300px;">
+
+            <p class="raw-text">
+                Once the best hyperparameters were determined for each model, the model with the optimal hyperparameters was selected and used for evaluation on the <b>test data</b>.
+            </p>
+
+            <p class="raw-text">
+                The results of the best hyperparameters for each model are shown in the following tables, for models trained with <b>RDKit</b>, <b>Mordred</b>, and the <b>molecular fingerprints</b>.
+            </p>
+
+            <p class="raw-text">
+                RDKIT results:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\RDKIt-best-hyperparameters.png" alt="RDKIT-hyper" style="width:auto; height:300px;">
+
+            
+            <p class="raw-text">
+                Mordred results:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\Mordred-best-hyperparameters.png" alt="Mordred-hyper" style="width:auto; height:300px;">
+
+            <p class="raw-text">
+                ECFP4 results:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\ECFP4-Hyperparameters.png" alt="Mordred-hyper" style="width:auto; height:300px;">
+
+            <h3 class="subtitle-raw">
+                Models evaluation
+            </h3>
+
+            <p class="raw-text">
+                The models with the best hyperparameters were evaluated using the following metrics: <b>Accuracy</b>, <b>Precision</b>, <b>F1-score</b>, and <b>Recall</b>.
+            </p>
+
+            <p class="raw-text">
+                The <b>Scikit-learn</b> library was used to calculate these metrics. The following figures show the results of all models for each metric by protein.
+            </p>
+
+            <p class="raw-text">
+                The results of the models for EGFR are:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\EGFR-results.png" alt="Mordred-hyper" style="width:auto; height:100px;">
+
+            <p class="raw-text">
+                The results of the models for MAPK1 are:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\MAPK1-results.png" alt="Mordred-hyper" style="width:auto; height:100px;">
+
+                        <p class="raw-text">
+                The results of the models for SRC are:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\SRC-Results.png" alt="Mordred-hyper" style="width:auto; height:100px;">
+
+                        <p class="raw-text">
+                The results of the models for STAT3 are:
+            </p>
+
+            <img src="projects_images\Model-training-tesis\STAT3-results.png" alt="Mordred-hyper" style="width:auto; height:100px;">
+
+            <p class="raw-text">
+                For each metric, the models are color-coded: <b>white</b> represents the worst performance, and <b>dark green</b> the best. <b>Red</b> indicates the model with the highest precision and, similarly, the most relevant molecular descriptor type. It can be observed that the most relevant descriptor was <b>ECFP4</b>, which corresponded to the models with the best performance.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Best models per protein
+            </h3>
+
+            <p class="raw-text">
+                best models of EGFR:
+            </p>
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Descriptor</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>RNA</td>
+                <td>ECFP4</td>
+                <td>0.886</td>
+                </tr>
+                <tr>
+                <td>BA</td>
+                <td>Mordred</td>
+                <td>0.87</td>
+                </tr>
+                <tr>
+                <td>XG</td>
+                <td>RDKit</td>
+                <td>0.863</td>
+                </tr>
+                <tr>
+                <td>BA</td>
+                <td>ECFP4</td>
+                <td>0.863</td>
+                </tr>
+                <tr>
+                <td>RNA</td>
+                <td>Mordred</td>
+                <td>0.861</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                best models of MAPK1:
+            </p>
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Descriptor</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>RNA</td>
+                <td>ECFP4</td>
+                <td>0.973</td>
+                </tr>
+                <tr>
+                <td>RNA</td>
+                <td>RDKit</td>
+                <td>0.965</td>
+                </tr>
+                <tr>
+                <td>RNA</td>
+                <td>Mordred</td>
+                <td>0.963</td>
+                </tr>
+                <tr>
+                <td>BA</td>
+                <td>RDKit</td>
+                <td>0.961</td>
+                </tr>
+                <tr>
+                <td>BA</td>
+                <td>Mordred</td>
+                <td>0.961</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                best models of SRC
+            </p>
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Descriptor</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>BA</td>
+                <td>ECFP4</td>
+                <td>0.851</td>
+                </tr>
+                <tr>
+                <td>BA</td>
+                <td>RDKit</td>
+                <td>0.85</td>
+                </tr>
+                <tr>
+                <td>MVS</td>
+                <td>Mordred</td>
+                <td>0.85</td>
+                </tr>
+                <tr>
+                <td>MVS</td>
+                <td>ECFP4</td>
+                <td>0.849</td>
+                </tr>
+                <tr>
+                <td>XG</td>
+                <td>ECFP4</td>
+                <td>0.849</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                best models of STAT3
+            </p>
+
+            <table border="1">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Descriptor</th>
+                <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>RL</td>
+                <td>ECFP4</td>
+                <td>0.898</td>
+                </tr>
+                <tr>
+                <td>XG</td>
+                <td>Mordred</td>
+                <td>0.883</td>
+                </tr>
+                <tr>
+                <td>RL</td>
+                <td>Mordred</td>
+                <td>0.864</td>
+                </tr>
+                <tr>
+                <td>MVS</td>
+                <td>ECFP4</td>
+                <td>0.861</td>
+                </tr>
+                <tr>
+                <td>RL</td>
+                <td>RDKit</td>
+                <td>0.86</td>
+                </tr>
+            </tbody>
+            </table>
+
+
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+            <li>All proteins (EGFR, MAPK1, SRC, STAT3) were modeled using three feature sets: <b>RDKit descriptors</b>, <b>Mordred descriptors</b>, and a <b>2048-bit ECFP4 fingerprint</b>.</li>
+            <li>Five types of models were trained: <b>Logistic Regression, SVM, Random Forest, XGBoost</b>, and a <b>Multilayer Perceptron (MLP)</b> for deep learning.</li>
+            <li>Training used <b>five-fold cross-validation</b> to determine the best hyperparameters, which were then applied to evaluate models on test datasets.</li>
+            <li>Models were evaluated using <b>Accuracy, Precision, F1-score, and Recall</b>, with color-coding highlighting the best-performing models and descriptors.</li>
+            <li>The <b>ECFP4 fingerprint</b> was the most relevant descriptor overall, consistently associated with the highest-performing models across all proteins.</li>
+            </ul>
+            
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>

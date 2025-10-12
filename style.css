@@ -553,6 +553,36 @@ header .navbar {
     font-size: var(--font-size-xs);
 }
 
+.tag-ScikitLearn {
+    color:  rgba(47, 127, 196, 0.5);
+    background-color: rgba(47, 127, 196, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-Scipy {
+    color:  rgba(17, 64, 34, 0.5);
+    background-color: rgba(17, 64, 34, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
+.tag-Tensorflow {
+    color:  rgba(191, 21, 21, 0.5);
+    background-color: rgba(191, 21, 21, 0.2);
+    padding: 3px 3px;
+    border-radius: 6px;
+    margin-top: 5px;
+    margin-bottom: 4px;
+    font-size: var(--font-size-xs);
+}
+
 
 
 /* My projects wrapper settings */
