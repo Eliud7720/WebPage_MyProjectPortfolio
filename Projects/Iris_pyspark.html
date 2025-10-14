@@ -14,6 +14,14 @@
 
     <!-- Linking for swiper-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+
+    <!-- Favico styling-->
+    <link rel="icon" type="image/png" href="../images/base/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="../images/base/favicon.svg" />
+    <link rel="shortcut icon" href="../images/base/favicon.ico" />
+    <link rel="manifest" href="../images/base/site.webmanifest" />
+
+        
 </head>
 <body>
 
@@ -48,7 +56,7 @@
         <!-- Project section-->
          <section class="Project">
 
-            <h1 class="main-title"> Development of consensus models using the trained models of each protein — Thesis Project Part 4</h1>
+            <h1 class="main-title"> Iris data model training with PySpark</h1>
             <hr class="main-hr">
 
             <div class="about-and-objective">
@@ -59,7 +67,7 @@
                     </h2>
                     <hr class="tinyhr">
                     <p class="about-description">
-                        Once the training process of all machine learning models for all proteins was completed, the question arose of whether a consensus strategy could improve the performance of the machine learning models.
+                        The <strong>IRIS dataset</strong> is a well-known dataset widely used to teach <strong>classification models</strong> in machine learning. While it is commonly employed with libraries like <strong>Scikit-learn</strong> or platforms such as <strong>KNIME</strong>, it is also important to demonstrate proficiency with <strong>big data tools</strong>, such as <strong>Apache Spark</strong> and its Python interface, <strong>PySpark</strong>. In this project, I showcase my results training various <strong>machine learning models</strong> on the IRIS dataset using multiple algorithms in <strong>PySpark</strong>.
                 </div>
 
                 <div class="objective">
@@ -68,7 +76,7 @@
                     </h2>
                     <hr class="tinyhr">
                     <p class="about-description">
-                        Develop consensus classification models based on two strategies: the first using only the top five models of each protein, and the second considering all machine learning models but applying a weighted prediction, where models with lower performance receive a smaller weight compared to the others.
+                        Train and evaluate <strong>machine learning models</strong> using <strong>PySpark MLlib</strong> on the well-known <strong>IRIS dataset</strong>.
                 </div>
 
             </div>
@@ -82,69 +90,217 @@
             </h3>
 
             <p class="raw-text">
-                The machine learning models with the best hyperparameters were saved using the <b>joblib</b> library for Python. Additionally, a <b>DataFrame</b> was created to store these models along with their performance, for use in the weighted prediction consensus model.
+                The <strong>IRIS dataset</strong> is widely used to teach <strong>classification models</strong> with the <strong>Scikit-learn</strong> library. It contains records (<strong>Y</strong>) for three species: <strong>Iris versicolor</strong>, <strong>Iris setosa</strong>, and <strong>Iris virginica</strong>. The features include the <strong>length and width of both the sepal and petal</strong> for each plant. You can learn more about this dataset and download it from the following link: https://www.kaggle.com/datasets/uciml/iris
             </p>
 
             <h3 class="subtitle-raw">
-                Consensus model based in top 5 models
+                Load PySpark Session
             </h3>
 
-            
             <p class="raw-text">
-                The <strong>consensus model</strong> is developed by first selecting the <strong>5 best-performing models</strong> for each protein and loading the corresponding <strong>test data for the three descriptor types</strong> to ensure consistent predictions. Each of the 5 models then generates <strong>probabilities of being "active"</strong> using exactly the same test data. For each sample, the <strong>average probability</strong> across the 5 models is calculated, and if this average is ≥ 0.5, the sample is classified as <strong>active</strong>; otherwise, it is classified as <strong>inactive</strong>. This approach <strong>leverages multiple models</strong> to improve prediction reliability while ensuring that the <strong>same test data</strong> is used for all models, regardless of the descriptor type.
+                First, a <strong>Spark session</strong> was created and named <strong>"Iris_with_PySpark"</strong>. This allows monitoring the jobs assigned to PySpark and observing how they are executed. The following image shows the <strong>Spark UI</strong> on the <strong>Spark Jobs</strong> tab:
             </p>
 
-            <p class="raw-text">
-                The <strong>consensus model evaluation</strong> was performed in the same way as the individual models, since it now produces only a <strong>list of predictions with 0 and 1</strong> (inactive and active). The corresponding <strong>Scikit-learn libraries</strong> were used to assess the model using the <strong>same metrics</strong> as those applied to the individual models.
-            </p>
-
-            <p class="raw-text">
-                The next table shows an example of a prediction with this model
-            </p>
-
-            <img src="projects_images\Consensus-model\Simple-average.png" alt="Simple-average" style="width:auto; height: 80px;">
+            <img src="projects_images\pyspark-iris\PySpark-iris.png" alt="PySpark-screenshot" style="width:auto; height: 300px;">
 
             <h3 class="subtitle-raw">
-                Consensus model based in weights
+                Load data
             </h3>
 
             <p class="raw-text">
-                  For the <strong>weighted model</strong>, all <strong>15 machine learning models</strong> were considered. Instead of a simple average, a <strong>weighted average</strong> was computed, where each prediction was multiplied by its corresponding weight, and the sum of all provided the final model output. Similarly, if the result was ≥ 0.5, it was classified as <strong>1 (active)</strong>; otherwise, as <strong>0 (inactive)</strong>. Since these are now <strong>simple classifications</strong>, <strong>Scikit-learn</strong> was also used to evaluate the model's performance using standard metrics.
+                The data was loaded into a <strong>Spark DataFrame</strong> using <code>spark.createDataFrame</code>, and the number of <strong>rows and columns</strong> was counted.
             </p>
+
+            <table border="1"> <tr> <th>Rows</th> <th>Columns</th> </tr> <tr> <td>150</td> <td>5</td> </tr> </table>
 
             <p class="raw-text">
-                The next table shows an example of a prediction with this model
+                The dataset contains 5 columns: sepal length (cm), sepal width (cm), petal length (cm), petal width (cm), label.
             </p>
-
-            <img src="projects_images\Consensus-model\Weighted-average.png" alt="Simple-average" style="width:auto; height: 100px;">
 
             <h3 class="subtitle-raw">
-                Models results
+                Exploratory Data Analysis
             </h3>
 
             <p class="raw-text">
-                The results of both the top-5 based model and the kiss-based models for each of the proteins are shown below (accuracy only)
+                The dataset does not require an extensive <strong>Exploratory Data Analysis (EDA)</strong> as it is very simple and has been widely explained in numerous tutorials. Using <strong>PySpark</strong>, the <code>describe</code> function, similar to <code>pandas</code>, provides a summary in the form of <strong>descriptive statistics</strong>.
             </p>
 
-            <img src="projects_images\Consensus-model\Results.png" alt="Results" style="width:auto; height: 400px;">
+            <img src="projects_images\pyspark-iris\descriptive-data-pyspark.png" alt="PySpark-screenshot" style="width:auto; height: 150px;">
 
             <p class="raw-text">
-                 As shown in the previous figure, the results of the <strong>best original individual models</strong> outperformed the <strong>consensus models</strong>. This is expected and has been discussed in multiple studies and articles. The book <strong>Introduction to Machine Learning with Python</strong> explains that the only consensus models that are consistently effective are those involving <strong>decision tree ensembles</strong>, such as <strong>Random Forest</strong> and <strong>gradient boosting</strong>.
+                However, unlike <code>pandas</code>, PySpark's <code>describe</code> does not return quantile information. To obtain this, you can use the <code>approxQuantile</code> function and provide a list of the desired percentiles or deciles as parameters.
             </p>
+
+            <p class="raw-text">
+                The following table presents the <strong>results obtained</strong> at different <strong>quantiles</strong> for each <strong>feature</strong>.
+            </p>
+
+            <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                <th>Feature</th>
+                <th>Q0.01</th>
+                <th>Q0.25</th>
+                <th>Q0.5</th>
+                <th>Q0.75</th>
+                <th>Q0.99</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>sepal length (cm)</td>
+                <td>4.3</td>
+                <td>5.1</td>
+                <td>5.8</td>
+                <td>6.4</td>
+                <td>7.9</td>
+                </tr>
+                <tr>
+                <td>sepal width (cm)</td>
+                <td>2.0</td>
+                <td>2.8</td>
+                <td>3.0</td>
+                <td>3.3</td>
+                <td>4.4</td>
+                </tr>
+                <tr>
+                <td>petal length (cm)</td>
+                <td>1.0</td>
+                <td>1.5</td>
+                <td>4.3</td>
+                <td>5.1</td>
+                <td>6.9</td>
+                </tr>
+                <tr>
+                <td>petal width (cm)</td>
+                <td>0.1</td>
+                <td>0.3</td>
+                <td>1.3</td>
+                <td>1.8</td>
+                <td>2.5</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                For <strong>categorical data</strong> such as <strong>species</strong>, it is common to perform a <strong>count of each class</strong>. To carry out a count in <strong>PySpark</strong>, you can use <strong>groupBy</strong> along with <strong>count</strong> and <strong>show</strong>:
+            </p>
+
+            <img src="projects_images\pyspark-iris\Categorical-data.png" alt= "Categorial-data" style="width:auto; height: 150px;">
+
+            <p class="raw-text">
+                As we can see in the previous tables, the data is <strong>balanced</strong>, since each <strong>category</strong> is represented <strong>equitably</strong>.
+            </p>
+
+            <p class="raw-text">
+                It is not possible to create <strong>plots</strong> directly using <strong>PySpark</strong>. However, there is a method to convert a <strong>PySpark DataFrame</strong> to <strong>Pandas</strong> and then generate plots. The following plot shows a <strong>scatter diagram</strong> with only two <strong>features</strong>: <strong>sepal width</strong> and <strong>sepal length</strong>, with each point colored according to its <strong>class</strong>. This allows us to visualize the <strong>ranges</strong> covered by each class. We can observe that <strong>high sepal width</strong> and <strong>low sepal length</strong> correspond to <strong>class 0</strong>, and so on.
+            </p>
+
+            <img src="projects_images\pyspark-iris\Species.png" alt="Species" style="width:auto; height: 350px;">
+
+            <h3 class="subtitle-raw">
+                Model training
+            </h3>
+
+            <p class="raw-text">
+                The data was transformed into a <strong>matrix</strong> using <strong>VectorAssembler</strong> to create <strong>features</strong> and <strong>labels</strong>. Subsequently, the data was split into two sets using <strong>randomSplit</strong> for <strong>training</strong> and <strong>testing</strong> with the standard 0.8 - 0.2 ratio. The <strong>machine learning algorithms</strong> <strong>Logistic Regression</strong> and <strong>Random Forest</strong> were trained with their respective <strong>MLlib instances</strong>. First, the <strong>best subset of hyperparameters</strong> was searched, and then each model was evaluated using this <strong>optimal hyperparameter subset</strong>. The best hyperparameteres were obtained using cross validation with cv = 5.
+            </p>
+
+            <p class="raw-text">
+                The <strong>hyperparameter grid</strong> tested for each <strong>model</strong> is shown below:
+            </p>
+
+            <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Hyperparameter</th>
+                <th>Grid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Logistic Regression</td>
+                <td>regParam</td>
+                <td>[0.01, 0.1, 1]</td>
+                </tr>
+                <tr>
+                <td>Logistic Regression</td>
+                <td>elasticNetParam</td>
+                <td>[0.0, 0.5, 1.0]</td>
+                </tr>
+                <tr>
+                <td>Random Forest</td>
+                <td>numTrees</td>
+                <td>[10, 50, 100]</td>
+                </tr>
+                <tr>
+                <td>Random Forest</td>
+                <td>maxDepth</td>
+                <td>[5, 10, 15]</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <h3 class="subtitle-raw">
+                Model evaluation
+            </h3>
+
+            <p class="raw-text">
+                The <strong>results</strong> of the <strong>best hyperparameters</strong> are shown in the table below:
+            </p>
+
+            <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                <th>Model</th>
+                <th>Hyperparameter</th>
+                <th>Best value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>Logistic Regression</td>
+                <td>regParam</td>
+                <td>0.01</td>
+                </tr>
+                <tr>
+                <td>Logistic Regression</td>
+                <td>elasticNetParam</td>
+                <td>0</td>
+                </tr>
+                <tr>
+                <td>Random Forest</td>
+                <td>numTrees</td>
+                <td>50</td>
+                </tr>
+                <tr>
+                <td>Random Forest</td>
+                <td>maxDepth</td>
+                <td>10</td>
+                </tr>
+            </tbody>
+            </table>
+
+            <p class="raw-text">
+                The <strong>models</strong> were evaluated with their respective <strong>best hyperparameters</strong> on the <strong>test set</strong> for the metrics: <strong>Accuracy</strong>, <strong>Precision</strong>, <strong>F1-score</strong>, and <strong>Recall</strong>. The <strong>results</strong> are shown in the table below.
+            </p>
+
+            <p class="raw-text">
+                The <strong>results</strong> of the <strong>models</strong> across the different <strong>metrics</strong> are shown in the figure below.
+            </p>
+
+             <img src="projects_images\pyspark-iris\Models-performance.png" alt="Species" style="width:auto; height: 350px;">
+
 
 
             <h2 class="Development-title"> Conclusions </h1>
             <hr class="main-hr">
 
             <ul class = "Conclusions_list">
-            <li>The project explored whether a <strong>consensus strategy</strong> could improve the performance of machine learning models trained for each protein.</li>
-            <li>Two consensus strategies were implemented: <strong>top-5 model average</strong> and <strong>weighted average of all 15 models</strong> based on individual model performance.</li>
-            <li>Machine learning models with optimized hyperparameters were saved using <strong>joblib</strong>, and a <strong>DataFrame</strong> was created to track models and their performance for weighted predictions.</li>
-            <li>The <strong>top-5 consensus model</strong> calculates probabilities of being active from the 5 best models, averages them, and classifies samples as active if the average ≥ 0.5, otherwise inactive.</li>
-            <li>The <strong>weighted consensus model</strong> considers all 15 models, multiplies each prediction by its weight, sums them, and classifies based on a 0.5 threshold.</li>
-            <li>Both consensus models were evaluated using <strong>Scikit-learn metrics</strong> in the same way as individual models.</li>
-            <li>Results showed that the <strong>best original individual models outperformed the consensus models</strong>, which is consistent with observations in literature.</li>
-            <li>The book <strong>Introduction to Machine Learning with Python</strong> notes that only consensus models using <strong>decision tree ensembles</strong> (Random Forest, Gradient Boosting) are consistently effective.</li>
+            <li><strong>Data Balance:</strong> The IRIS dataset used is <strong>well-balanced</strong>, with each species equally represented, ensuring fair training and evaluation of models.</li>
+            <li><strong>Model Performance:</strong> Both <strong>Random Forest</strong> and <strong>Logistic Regression</strong> achieved high performance, with Random Forest slightly outperforming Logistic Regression across all metrics (Accuracy, Precision, F1-score, and Recall).</li>
+            <li><strong>PySpark MLlib Usability:</strong> PySpark allows efficient training and hyperparameter tuning on the IRIS dataset, demonstrating its capability to handle machine learning workflows on structured data, even though visualization requires conversion to Pandas.</li>
             </ul>
             
 
