@@ -88,64 +88,58 @@
 
 
             <h3 class="subtitle-raw">
-                Consensus model based in top 5 models
+                Shapley analysis
             </h3>
 
             <p class="raw-text">
-                The <strong>consensus model</strong> is developed by first selecting the <strong>5 best-performing models</strong> for each protein and loading the corresponding <strong>test data for the three descriptor types</strong> to ensure consistent predictions. Each of the 5 models then generates <strong>probabilities of being "active"</strong> using exactly the same test data. For each sample, the <strong>average probability</strong> across the 5 models is calculated, and if this average is ≥ 0.5, the sample is classified as <strong>active</strong>; otherwise, it is classified as <strong>inactive</strong>. This approach <strong>leverages multiple models</strong> to improve prediction reliability while ensuring that the <strong>same test data</strong> is used for all models, regardless of the descriptor type.
+                The <strong>Shapley analysis</strong> was conducted on both types of <strong>molecular descriptors</strong> (<strong>Rdkit</strong> and <strong>Mordred</strong>) for each protein. The <strong>random forest models</strong> trained with the <strong>best hyperparameters</strong> were loaded using Python's <strong>joblib</strong> library. Additionally, each type of <strong>molecular descriptor</strong>, both Rdkit and Mordred, was loaded for the analysis.
             </p>
 
             <p class="raw-text">
-                The <strong>consensus model evaluation</strong> was performed in the same way as the individual models, since it now produces only a <strong>list of predictions with 0 and 1</strong> (inactive and active). The corresponding <strong>Scikit-learn libraries</strong> were used to assess the model using the <strong>same metrics</strong> as those applied to the individual models.
+                Once the data were loaded and the <strong>best features</strong> had already been identified (according to <strong>random forest</strong>), the focus was on generating the <strong>Shapley beeswarm plot</strong>, which is the most applicable in these cases. The <strong>shap</strong> library was used to perform the analysis. The <strong>shap.Explanation</strong> function was employed, followed by plotting using <strong>shap.plots.beeswarm</strong>.
             </p>
 
             <p class="raw-text">
-                The next table shows an example of a prediction with this model
+                Below is the <strong>beeswarm plot</strong> for the <strong>Random Forest model</strong> using the <strong>RDKIT molecular descriptors</strong>.
             </p>
 
-            <img src="projects_images\Consensus-model\Simple-average.png" alt="Simple-average" style="width:auto; height: 80px;">
+            <img src="projects_images\Shapley-tesis\Shapley-plot-example.png" alt="Shapley-example" style="width:auto; height:450px;">
+
+            <p class="raw-text">
+                <strong>Red values</strong> indicate relatively high values for each feature. For example, if a feature ranges from 0 to 25, red values are close to 25, while <strong>blue values</strong> are near 0. The position of each point to the left or right of the X-axis represents whether the feature contributes <strong>negatively or positively</strong> to the probability of belonging to <strong>class 1</strong>. For instance, in the previously shown image, the first feature <strong>SlogP_VSA10</strong> shows that high values tend to <strong>positively contribute</strong> to the probability of being class 1, while low values contribute negatively. Conversely, for <strong>SlogP_VSA8</strong>, the effect is exactly the opposite.
+            </p>
 
             <h3 class="subtitle-raw">
-                Consensus model based in weights
+                Results
             </h3>
 
             <p class="raw-text">
-                  For the <strong>weighted model</strong>, all <strong>15 machine learning models</strong> were considered. Instead of a simple average, a <strong>weighted average</strong> was computed, where each prediction was multiplied by its corresponding weight, and the sum of all provided the final model output. Similarly, if the result was ≥ 0.5, it was classified as <strong>1 (active)</strong>; otherwise, as <strong>0 (inactive)</strong>. Since these are now <strong>simple classifications</strong>, <strong>Scikit-learn</strong> was also used to evaluate the model's performance using standard metrics.
+                This analysis was conducted on <strong>all proteins</strong>. Finally, only the <strong>top 5 features</strong> were reported, along with their <strong>relative importance</strong>, <strong>contribution</strong>, and a brief explanation of how each feature functions <strong>chemically</strong>. Below, the corresponding tables are presented  only for the EGFR protein, organized by <strong>descriptor type</strong>.
             </p>
 
             <p class="raw-text">
-                The next table shows an example of a prediction with this model
+                EGFR shapley analysis using RDKIT descriptors
             </p>
 
-            <img src="projects_images\Consensus-model\Weighted-average.png" alt="Simple-average" style="width:auto; height: 100px;">
-
-            <h3 class="subtitle-raw">
-                Models results
-            </h3>
+            <img src="projects_images\Shapley-tesis\Shapley-EGFR-Rdkit.png" alt="Shapley-rdkit" style="width:auto; height:250px;">
 
             <p class="raw-text">
-                The results of both the top-5 based model and the kiss-based models for each of the proteins are shown below (accuracy only)
+                EGFR shapley analysis using Mordred descriptors
             </p>
 
-            <img src="projects_images\Consensus-model\Results.png" alt="Results" style="width:auto; height: 400px;">
+            <img src="projects_images\Shapley-tesis\Shapley-EGFR-Mordred.png" alt="Shapley-mordred" style="width:auto; height:250px;">
 
-            <p class="raw-text">
-                 As shown in the previous figure, the results of the <strong>best original individual models</strong> outperformed the <strong>consensus models</strong>. This is expected and has been discussed in multiple studies and articles. The book <strong>Introduction to Machine Learning with Python</strong> explains that the only consensus models that are consistently effective are those involving <strong>decision tree ensembles</strong>, such as <strong>Random Forest</strong> and <strong>gradient boosting</strong>.
-            </p>
+
+
 
 
             <h2 class="Development-title"> Conclusions </h1>
             <hr class="main-hr">
 
             <ul class = "Conclusions_list">
-            <li>The project explored whether a <strong>consensus strategy</strong> could improve the performance of machine learning models trained for each protein.</li>
-            <li>Two consensus strategies were implemented: <strong>top-5 model average</strong> and <strong>weighted average of all 15 models</strong> based on individual model performance.</li>
-            <li>Machine learning models with optimized hyperparameters were saved using <strong>joblib</strong>, and a <strong>DataFrame</strong> was created to track models and their performance for weighted predictions.</li>
-            <li>The <strong>top-5 consensus model</strong> calculates probabilities of being active from the 5 best models, averages them, and classifies samples as active if the average ≥ 0.5, otherwise inactive.</li>
-            <li>The <strong>weighted consensus model</strong> considers all 15 models, multiplies each prediction by its weight, sums them, and classifies based on a 0.5 threshold.</li>
-            <li>Both consensus models were evaluated using <strong>Scikit-learn metrics</strong> in the same way as individual models.</li>
-            <li>Results showed that the <strong>best original individual models outperformed the consensus models</strong>, which is consistent with observations in literature.</li>
-            <li>The book <strong>Introduction to Machine Learning with Python</strong> notes that only consensus models using <strong>decision tree ensembles</strong> (Random Forest, Gradient Boosting) are consistently effective.</li>
+            <li>The <strong>Shapley analysis</strong> successfully identified the <strong>most relevant molecular descriptors</strong> that influence protein activity, providing insight into how each feature contributes to the predictions of Random Forest models.</li>
+            <li>Using both <strong>Rdkit and Mordred descriptors</strong>, the analysis highlighted that different features can have <strong>opposite contributions</strong> to the probability of class membership, emphasizing the importance of feature-specific interpretation.</li>
+            <li>By focusing on the <strong>top 5 features</strong> per protein, the study allowed for a clear and chemically meaningful explanation of the descriptors' impact, making complex models like Random Forest more <strong>interpretable</strong>.</li>
             </ul>
             
 

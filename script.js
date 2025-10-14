@@ -65,6 +65,7 @@ resumeObserver.observe(resumeTitle);
   // Initialize Swipper projects
 const swiper = new Swiper('.slider-wrapper', {
   spaceBetween: 25,
+  loop: true,
 
   // Pagination
   pagination: {
@@ -98,13 +99,14 @@ const swiper = new Swiper('.slider-wrapper', {
   // Initialize Swipper projects
 const swiper2 = new Swiper('.slider-wrapper-resume', {
   spaceBetween: 25,
+  loop: true,
 
   // Pagination
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
     dynamicBullets: true,
-    slidesPerView: 1
+    slidesPerView: 1,
   },
 
   // Navigation arrows

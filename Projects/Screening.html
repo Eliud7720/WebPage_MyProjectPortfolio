@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My project portafolio</title>
+
+    <!-- Import sytiling-->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Linking Font Awsome for icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- Linking for swiper-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+</head>
+<body>
+
+    <!-- Header /Navbar-->
+    <header>
+        <nav class="navbar">
+
+            <!-- Name -->
+            <a href="../index.html" class="nav-logo">
+            <h2 class="nav-EliudName">ELIUD AGUILAR</h2>
+            <h2 class="nav-project">PROJECT PORTFOLIO 📂</h3>
+            </a>
+
+            <!-- Menu -->
+            <ul class="navbar-Menu">
+
+                <!-- Menu elements -->
+                <button id="nav-close-button" class="fas fa-times"></button>
+                <li clas="nav-item"> <a href="../index.html#Eliud" class = "nav-link">Who am I?</a></li>
+                <li clas="nav-item"> <a href="../index.html#projects" class = "nav-link">Projects</a></li>
+                <li clas="nav-item"> <a href="../index.html#Resume" class = "nav-link">Resume</a></li>
+            </ul>
+
+            <button id="nav-open-button" class="fas fa-bars"></button>
+
+        </nav>
+    </header>
+
+
+    <main>
+
+        <!-- Project section-->
+         <section class="Project">
+
+            <h1 class="main-title">   Virtual screening of the COCONUT and ReFRAME databases using machine learning models - Thesis project 6</h1>
+            <hr class="main-hr">
+
+            <div class="about-and-objective">
+
+                <div class="about">
+                    <h2 class="about-title">
+                        About this project
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        Apply the selected best model for each protein to the database to predict every compound’s activity for each target. For each compound–protein pair compute the <strong>probability of belonging to class 1 (active)</strong>, then compare those probabilities to rank candidates (for example, a compound with <strong>0.9</strong> is preferable to one with <strong>0.7</strong>). Finally, <strong>filter and prioritize compounds that show high probabilities across multiple proteins</strong> to identify the most promising multi-target candidates.
+                </div>
+
+                <div class="objective">
+                    <h2 class="objective-title">
+                        Objective
+                    </h2>
+                    <hr class="tinyhr">
+                    <p class="about-description">
+                        <strong>Carry out predictions</strong> using the best ML models for each protein and <strong>identify the top candidate compounds</strong> based on those predictions.
+                </div>
+
+            </div>
+
+            <h2 class="Development-title"> Development </h1>
+            <hr class="main-hr">
+
+            
+            <h3 class="subtitle-raw">
+                Data collection
+            </h3>
+
+            <p class="raw-text">
+                The databases <strong>COCONUT</strong> and <strong>ReframeDB</strong> were downloaded in CSV format, containing nearly <strong>700,000 compounds</strong> in total for prediction. These files were loaded into Python as pandas DataFrames and then merged into a single table named <strong>“combined bases”</strong>, which includes only three columns: <strong>Identifier</strong>, <strong>SMILES</strong>, and <strong>Compound Name</strong>.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Data Processing
+            </h3>
+
+            <p class="raw-text">
+                After merging the databases, the Python library <strong>RDKit</strong> was used to <strong>remove salts and ions</strong> from all compounds. Additionally, compounds already present in the datasets were excluded. Compounds with <strong>missing SMILES</strong> were also removed, while those with missing names were retained since most compounds do not have a name until they are patented. Finally, compounds with <strong>duplicate identifiers</strong> or <strong>duplicate SMILES</strong> were eliminated.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Predictions
+            </h3>
+
+            <p class="raw-text">
+                Once the data was processed, the <strong>ECFP4 molecular fingerprint</strong> was calculated for all compounds, since it is the one used in the best models for each protein. With this information, the probability of belonging to <strong>class 1 (active)</strong> was predicted for every compound across the 4 proteins, resulting in a total of <strong>2,800,000 predictions</strong> 
+            </p>
+            
+            <p class="raw-text">
+                The following figure shows a <strong>histogram of the prediction probabilities</strong> for the <strong>EGFR protein </strong>  
+            </p>
+
+            <img src="projects_images\predictions-tesis\EGFR-predictions.png" alt="EGFR-predictions" style="width:auto; height: 400px;">
+
+            <p class="raw-text">
+                The following figure shows a <strong>histogram of the prediction probabilities</strong> for the <strong>MAPK1 protein </strong> 
+            </p>
+
+            <img src="projects_images\predictions-tesis\MAPK1-predictions.png" alt="MAPK1-predictions" style="width:auto; height: 400px;">
+
+            <p class="raw-text">
+                The following figure shows a <strong>histogram of the prediction probabilities</strong> for the <strong>SRC protein </strong> 
+            </p>
+
+            <img src="projects_images\predictions-tesis\SRC-predictions.png" alt="MAPK1-predictions" style="width:auto; height: 400px;">
+
+            <p class="raw-text">
+                The following figure shows a <strong>histogram of the prediction probabilities</strong> for the <strong>STAT3 protein </strong> 
+            </p>
+
+            <img src="projects_images\predictions-tesis\STAT3-prediction.png" alt="STAT3-predictions" style="width:auto; height: 400px;">
+
+            <p class="raw-text">
+                As seen in the previous figures, a large number of compounds have a probability of <strong>0.9 or higher</strong> of inhibiting <strong>EGFR</strong> and <strong>MAPK1</strong>. However, only <strong>107 compounds</strong> and <strong>1,450 compounds</strong> have a probability ≥0.9 of inhibiting <strong>SRC</strong> and <strong>STAT3</strong>, respectively. Therefore, we can anticipate that the majority of the results will consist of <strong>multi-target compounds between EGFR and MAPK1</strong>.
+            </p>
+
+            <h3 class="subtitle-raw">
+                Multitarget compounds
+            </h3>
+
+            <p class="raw-text">
+                Since the goal is to identify compounds with a <strong>high probability of inhibiting at least two proteins (multi-target compounds)</strong>, the <strong>pandas</strong> library in Python was used to analyze and determine the shared compounds. The strategy for analyzing shared compounds is illustrated in the following diagram:
+            </p>
+
+            <img src="projects_images\predictions-tesis\Search-strategy.png" alt="Strategy" style="width:auto; height: 400px;">
+
+            <h3 class="subtitle-raw">
+                Results
+            </h3>  
+
+            <p class="raw-text">
+                From the conducted analysis, the results are summarized in the following table:
+            </p>
+
+            <img src="projects_images\predictions-tesis\Results.png" alt="Strategy" style="width:auto; height: 150px;">
+
+            <p class="raw-text">
+                A final filtering step was performed to ensure the compounds are <strong>orally bioavailable in humans</strong>. All compounds were filtered using the <strong>Lipinski’s rules</strong>, retaining only those with a maximum of <strong>one violation</strong>.
+            </p>
+
+            <img src="projects_images\predictions-tesis\Results-lipinski.png" alt="Strategy" style="width:auto; height: 130px;">
+
+            <p class="raw-text">
+                As a result, <strong>594 promising compounds</strong> were identified for the proteins shown in the previous table. The analyses presented on this page cover up to this point. However, <strong>25% of the project remains</strong>, including <strong>molecular docking</strong> and <strong>molecular interaction analysis</strong>. Additionally, <strong>potential toxicity, costs, and other factors</strong> will be evaluated, ultimately leading to <strong>4 highly promising compounds</strong>.
+            </p>
+
+
+            <h2 class="Development-title"> Conclusions </h1>
+            <hr class="main-hr">
+
+            <ul class = "Conclusions_list">
+                <li><strong>Nearly 700,000 compounds</strong> from the COCONUT and ReFrameDB databases were merged and processed, removing salts, ions, duplicates, and compounds with missing SMILES.</li> 
+                <li><strong>ECFP4 fingerprints</strong> were calculated and used to predict the probability of activity (class 1) across 4 target proteins, resulting in <strong>2,800,000 predictions</strong>.</li> 
+                <li>A large number of compounds show high probability (≥0.9) of inhibiting <strong>EGFR and MAPK1</strong>, while far fewer compounds are likely to inhibit <strong>SRC and STAT3</strong>, indicating that multi-target candidates are mostly EGFR/MAPK1-focused.</li> 
+                <li>After identifying shared compounds and applying <strong>Lipinski’s rules</strong> to ensure oral bioavailability, <strong>594 promising multi-target compounds</strong> were selected.</li> 
+                <li>Further analysis including <strong>molecular docking, interaction analysis, toxicity, and cost assessment</strong> is ongoing, ultimately narrowing down to <strong>4 highly promising compounds</strong>.</li>
+            </ul>
+            
+
+
+         </section>
+
+ 
+        <!-- My footer-->
+        <footer class="site-footer">
+            Eliud Aguilar Project Portfolio ©
+        </footer>
+
+    </main>
+    
+
+
+    <!--Custom Script-->
+    <script src = "script.js" ></script>
+
+    <!--Swipper script-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    
+</body>
+</html>
